@@ -1,2 +1,2 @@
-# utmist.github.io/home
-Home page
+# utmist.github.io
+Home page for utmist
