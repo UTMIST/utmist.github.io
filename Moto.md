@@ -1,24 +1,25 @@
 # Outline of the UTMIST website
-The website serves as the hub of online presence for UTMIST. Its sole purpose is to enhance the learning experience of UTMIST members and promote UTMIST as a student organization. Its functions should only complement what is freely available on the web, that is, it should not serve any duplicate functions as Eventbrite, Google Forms, or Facebook. It should at most link to them when necessary.
+The website serves as the hub of online presence for UTMIST. Its sole purpose is to enhance the learning experience of UTMIST members and promote UTMIST as a student organization. Its functions should only complement what is freely available on the web, that is, it should not serve any duplicate functions as Eventbrite, Google Forms, Facebook, or Medium. It should at most link to them when necessary.
 
 # Pages
 - Landing (90% of visitors should find what they want here)
     - happening right now (if available)
-    - 2 most recent event
-    - 2 most recent project
+    - 2 most recent events summary
+    - 2 most recent projects summary
     - brief about us
-    - keep in touch (newsletter)
-    - sponsors
+    - newsletter sign up
+    - sponsors run down
 - Events
     - upcoming
         - event specific info
         - how to register
-        - what do you want to get out of it?
+        - ask user: what do you expect out of it?
     - recent
-        - event specific info
-        - event resources (slides, documents)
-        - feedback & comments
-- Projects?
+        - short summary / medium post embed / link
+        - photos gallery
+        - resources (slides, documents)
+        - collect feedback & comments
+- Projects: don't worry about it so far
     - brief
     - status
     - participants
