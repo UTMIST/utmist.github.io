@@ -4,19 +4,20 @@ The website serves as the hub of online presence for UTMIST. Its sole purpose is
 # Pages
 - Landing (90% of visitors should find what they want here)
     - happening right now (if available)
-    - 2 most recent events summary
-    - 2 most recent projects summary
+      - include live video link(if any), location, wait-list length
+    - recent events carousel
+    - recent projects carousel
     - brief about us
     - newsletter sign up
     - sponsors run down
 - Events
     - upcoming
-        - event specific info
+        - intro
         - how to register
         - ask user: what do you expect out of it?
     - recent
-        - short summary / medium post embed / link
-        - photos gallery
+        - medium preview + link (apparently we can do gallery in medium)
+        - share link
         - resources (slides, documents)
         - collect feedback & comments
 - Projects: don't worry about it so far
@@ -24,11 +25,10 @@ The website serves as the hub of online presence for UTMIST. Its sole purpose is
     - status
     - participants
 - MIST101
-    - learning materials
-    - playgrounds?
+    - learning materials links
 - About us
     - mission
-    - current team
+    - current team members
     - history
 - Archive
 
