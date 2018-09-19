@@ -1,0 +1,16 @@
+{
+  "name": "utmist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "parcel": "^1.9.7",
+    "parcel-bundler": "^1.9.7"
+  },
+  "keywords": []
+}

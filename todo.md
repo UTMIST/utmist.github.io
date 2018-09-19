@@ -1,0 +1,6 @@
+- Use proper font, UTMIST Logo
+- Change name to "new home"
+- Make sure all links click
+- Remove link styles
+- Use proper buttons etc
+- Write site generation script
