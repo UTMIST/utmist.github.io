@@ -12,11 +12,12 @@
 
 <body>
 	<header>
+		<img src="Logo/SVG/White Brain.svg" class="logo" />
 		<h2><a href="home.html">UTMIST</a></h2>
-		<div id="newsletter">
+		<form id="newsletter">
 			<input type="email" placeholder="get newsletters" id="newsletter-input" />
 			<input type="submit" value="Send" id="newsletter-submit" />
-		</div>
+		</form>
 	</header>
 	<div class="fullcover-wrap">
 		<img src="//burst.shopifycdn.com/photos/teachers-desk-calendar_4460x4460.jpg?attachment=teachers-desk-calendar_4460x4460.jpg"
@@ -25,18 +26,22 @@
 			<h1>Upcoming Events</h1>
 		</div>
 	</div>
-	<div id="upcoming">
+	<form id="upcoming" method="GET">
 		<h4>MIST101 -- Natural Language Processing</h4>
 		<small>Next Monday</small>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim ullamcorper urna id consequat. Pellentesque eu
-			malesuada justo. Morbi auctor mi nec arcu mollis iaculis. Vivamus at magna convallis, sodales justo sit amet, ultrices
-			eros. Proin vestibulum ex tellus, vitae blandit mi maximus non. Vestibulum ligula felis, pretium ac cursus non, condimentum
-			non arcu. Aliquam erat volutpat. Morbi cursus vel enim eu placerat. Suspendisse in fringilla nisl. Duis non sagittis nunc.
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dignissim ullamcorper urna id consequat.
+			Pellentesque eu
+			malesuada justo. Morbi auctor mi nec arcu mollis iaculis. Vivamus at magna convallis, sodales justo sit amet,
+			ultrices
+			eros. Proin vestibulum ex tellus, vitae blandit mi maximus non. Vestibulum ligula felis, pretium ac cursus non,
+			condimentum
+			non arcu. Aliquam erat volutpat. Morbi cursus vel enim eu placerat. Suspendisse in fringilla nisl. Duis non sagittis
+			nunc.
 			Nullam ut augue pretium, lobortis ipsum vel, commodo nisi.</p>
-		<a href="#">RSVP Here</a>
-		<textarea placeholder="What do you expect to get from this event?" name="pre-feedback"></textarea>
-		<input type="submit" value="Submit" />
-	</div>
+		<textarea class="onlight" placeholder="What do you expect to get from this event?" name="pre-feedback" required></textarea>
+		<br>
+		<input type="submit" class="accent btn" value="RSVP" />
+	</form>
 	<h3>Past Events</h3>
 	<div id="past" class="card-container">
 		<a class="card" href="https://medium.com/" target="_blank" rel="noopener noreferrer">
@@ -44,8 +49,7 @@
 			<div class="card-header">View on Medium</div>
 			<div class="card-title">Linear Algebra Basics</div>
 			<div class="card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</div>
-			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg"
-			/>
+			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg" />
 			<div class="card-footer">a week ago</div>
 		</a>
 		<a class="card" href="https://medium.com/" target="_blank" rel="noopener noreferrer">
@@ -53,8 +57,7 @@
 			<div class="card-header">View on Medium</div>
 			<div class="card-title">Linear Algebra Basics</div>
 			<div class="card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</div>
-			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg"
-			/>
+			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg" />
 			<div class="card-footer">a week ago</div>
 		</a>
 	</div>

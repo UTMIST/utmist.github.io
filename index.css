@@ -9,9 +9,17 @@
   flex: 0 0 auto;
 }
 
+#askq {
+  margin-top: 0.3rem;
+}
+
 .fullcover-content {
   justify-content: flex-end;
   text-align: left;
+}
+
+.tosection {
+  margin: auto 0.5rem;
 }
 
 /* phone */

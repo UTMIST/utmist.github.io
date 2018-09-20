@@ -1,6 +1,6 @@
-- Use proper font, UTMIST Logo
-- Change name to "new home"
+- [x] Use proper font, UTMIST Logo
+- [x] Change name to "new home"
+- [x] Remove link styles
 - Make sure all links click
-- Remove link styles
 - Use proper buttons etc
 - Write site generation script

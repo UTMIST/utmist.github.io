@@ -4,32 +4,39 @@
 	<title>UTMIST</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script defer src="//use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
-	 crossorigin="anonymous"></script>
+	<!-- <script defer src="//use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
+	 crossorigin="anonymous"></script> -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	 crossorigin="anonymous">
 	<link rel="stylesheet" href="common.css" />
 	<link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
 	<header>
-		<h2><a href="home.html">UTMIST</a></h2>
-		<div id="newsletter">
-			<input type="email" placeholder="get newsletters" id="newsletter-input" />
-			<input type="submit" value="Send" id="newsletter-submit" />
-		</div>
+		<a href="home.html" id="tohome">
+			<img src="Logo/SVG/White Brain.svg" class="logo" />
+		</a>
+		<a href="home.html" id="tohome">
+			<h2>UTMIST</h2>
+		</a>
+		<form id="newsletter" method="GET">
+			<input type="email" autocomplete="email" class="ondark" placeholder="get newsletters" id="newsletter-input" />
+			<input type="submit" class="accent btn ondark" value="Send" id="newsletter-submit" />
+		</form>
 	</header>
 	<div class="fullcover-wrap">
 		<video autoplay muted loop class="fullcover-bg">
 			<source src="//burst.shopifycdn.com/photos/Nicole-Coffee-Cinemagraph.mp4?attachment=Nicole-Coffee-Cinemagraph.mp4" />
 		</video>
 		<div class="fullcover-content">
-			<h2>Happening Right Now</h2>
+			<h3>Happening Right Now</h3>
 			<div>Live: <i class="fab fa-youtube"></i></div>
 			<div>Location: BA2130</div>
 			<div>Waitlist: 3</div>
-			<div>Post a question
-				<a href="//pigeonhole.at/UTMIST">here</a>
-			</div>
+			<a href="//pigeonhole.at/UTMIST" class="accent btn" id="askq">
+				Ask a question
+			</a>
 		</div>
 	</div>
 
@@ -42,8 +49,7 @@
 			<div class="card-header">MIST101</div>
 			<div class="card-title">Linear Algebra Basics</div>
 			<div class="card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</div>
-			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg"
-			/>
+			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg" />
 			<div class="card-footer">a week ago</div>
 		</a>
 		<a class="card" href="#" target="_blank" rel="noopener noreferrer">
@@ -51,8 +57,7 @@
 			<div class="card-header">MIST101</div>
 			<div class="card-title">Linear Algebra Basics</div>
 			<div class="card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</div>
-			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg"
-			/>
+			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg" />
 			<div class="card-footer">a week ago</div>
 		</a>
 	</div>
@@ -61,7 +66,8 @@
 	</div> -->
 	<h3>About Us</h3>
 	<p>
-		University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization within the
+		University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization
+		within the
 		University of Toronto. Our mission is to let more people get to know about artificial intelligence, “Clear the mist”!
 		<a href="about.html">learn more</a>
 	</p>
