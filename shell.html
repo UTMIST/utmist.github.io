@@ -4,6 +4,8 @@
 	<title>Events - UTMIST</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
 	<script defer src="//use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
 	 crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="common.css" />
@@ -11,11 +13,15 @@
 
 <body>
 	<header>
-		<img src="Logo/SVG/White Brain.svg" class="logo" />
-		<h2><a href="home.html">UTMIST</a></h2>
-		<form id="newsletter">
-			<input type="email" placeholder="get newsletters" id="newsletter-input" />
-			<input type="submit" value="Send" id="newsletter-submit" />
+		<a href="home.html" id="tohome">
+			<img src="Logo/SVG/White Brain.svg" class="logo" />
+		</a>
+		<a href="home.html" id="tohome">
+			<h2>UTMIST</h2>
+		</a>
+		<form id="newsletter" method="GET">
+			<input type="email" autocomplete="email" class="ondark" placeholder="get newsletters" id="newsletter-input" />
+			<input type="submit" class="accent btn ondark" value="Send" id="newsletter-submit" />
 		</form>
 	</header>
 	<br>
