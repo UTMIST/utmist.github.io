@@ -1,5 +1,4 @@
 #upcoming {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -14,7 +13,6 @@ input[type="submit"] {
 }
 
 .card {
-  margin: 0.5rem 1rem;
   width: auto;
 }
 

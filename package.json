@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "start": "parcel home.html",
+    "build": "parcel build home.html"
   },
   "dependencies": {},
   "devDependencies": {
     "parcel": "^1.9.7",
-    "parcel-bundler": "^1.9.7"
+    "parcel-bundler": "^1.9.7",
+    "pug": "^2.0.3"
   },
   "keywords": []
 }
