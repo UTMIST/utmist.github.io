@@ -36,7 +36,7 @@ section:nth-child(odd) {
 .action {
   max-width: 15rem;
   width: 90%;
-  margin: 1rem auto;
+  margin: 0.5rem auto;
 }
 
 .abouttext,
@@ -85,6 +85,9 @@ section:nth-child(odd) {
   .intouchtext > form > #newsletter {
     margin-right: 0.5rem;
     flex-grow: 1;
+  }
+  .intouchtext > h1 {
+    margin: 0.5rem 0;
   }
 }
 
