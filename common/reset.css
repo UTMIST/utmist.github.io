@@ -1,3 +1,4 @@
+/* overwrite browser defaults for inconsistencies */
 a {
   text-decoration: none;
   color: inherit;
@@ -15,8 +16,12 @@ body {
 body {
   font-family: Lato, sans-serif;
 }
+input {
+  min-width: 0;
+}
 button,
-input[type="submit"],input {
+input[type="submit"],
+input {
   -webkit-appearance: none;
   border-radius: 0;
 }

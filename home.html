@@ -29,6 +29,7 @@ body {
   --darkshadow: 0 2px 6px #333333;
   --lightshadow: 0 2px 6px white;
 }
+/* overwrite browser defaults for inconsistencies */
 a {
   text-decoration: none;
   color: inherit;
@@ -46,8 +47,12 @@ body {
 body {
   font-family: Lato, sans-serif;
 }
+input {
+  min-width: 0;
+}
 button,
-input[type="submit"],input {
+input[type="submit"],
+input {
   -webkit-appearance: none;
   border-radius: 0;
 }
@@ -138,26 +143,22 @@ input[type="email"] {
 
 /* left-right when screen is large enough, top-down otherwise */
 .duo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  align-items: stretch;
 }
 /* non-phone */
 @media screen and (min-width: 560px) {
-  .duo > * {
-    width: 50%;
-    margin: 0;
+  .duo {
+    grid-template-areas: "left right" "left right";
   }
 }
 
 /* phone */
 @media screen and (max-width: 559px) {
   .duo {
-    flex-wrap: wrap;
-  }
-  .duo > * {
-    width: 100%;
-    margin: 0;
+    grid-template-areas: "top top" "bottom bottom";
   }
 }
 </style><title>UTMIST</title><style>.card {
@@ -246,7 +247,8 @@ section:nth-child(odd) {
 
 .abouttext,
 .intouchtext {
-  padding: 0 5%;
+  padding: 5%;
+  margin: auto;
 }
 .abouttext > h1 {
   margin-bottom: 0;
@@ -269,6 +271,17 @@ section:nth-child(odd) {
   font-size: 1rem;
   padding: 0.5rem;
   font-family: Instruction, sans-serif;
+}
+
+.duo > img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+p {
+  line-height: 1.6rem;
 }
 
 /* non-phone */
@@ -302,10 +315,12 @@ section:nth-child(odd) {
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+    max-width: 18rem;
+    margin: auto;
   }
   .intouchtext > form > #newsletter {
     width: 90%;
-    max-width: 15rem;
+    margin: auto;
   }
   h1 {
     font-size: 2rem;
@@ -325,14 +340,14 @@ section:nth-child(odd) {
     padding-top: 0.5rem;
   }
   .duo {
-    margin-bottom: -4rem;
+    margin-bottom: -3rem;
   }
   .duo > div {
+    grid-area: bottom;
     transform: translateY(-4rem);
-    order: 2;
   }
   .duo > img {
-    order: 1;
+    grid-area: top;
   }
   footer {
     margin: 2rem 0 0 0;
@@ -388,10 +403,11 @@ header > .links {
 .hamburgerexpanded {
   z-index: 10;
   position: fixed;
-  left: 50%;
+  left: 100%;
   top: 0;
   right: 0;
   bottom: 0;
+  overflow: visible;
 }
 .hamburgerexpanded > .links {
   display: flex;
@@ -406,7 +422,7 @@ header > .links {
   justify-content: center;
   align-content: center;
   align-items: center;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 .clickaway {
   position: absolute;
@@ -427,7 +443,7 @@ header > .links {
   right: 0;
   top: 0;
   padding: 0.9rem;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
   font-size: 1.2rem;
   height: 3rem;
   width: 3rem;

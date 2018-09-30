@@ -41,7 +41,8 @@ section:nth-child(odd) {
 
 .abouttext,
 .intouchtext {
-  padding: 0 5%;
+  padding: 5%;
+  margin: auto;
 }
 .abouttext > h1 {
   margin-bottom: 0;
@@ -64,6 +65,17 @@ section:nth-child(odd) {
   font-size: 1rem;
   padding: 0.5rem;
   font-family: Instruction, sans-serif;
+}
+
+.duo > img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+p {
+  line-height: 1.6rem;
 }
 
 /* non-phone */
@@ -97,10 +109,12 @@ section:nth-child(odd) {
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
+    max-width: 18rem;
+    margin: auto;
   }
   .intouchtext > form > #newsletter {
     width: 90%;
-    max-width: 15rem;
+    margin: auto;
   }
   h1 {
     font-size: 2rem;
@@ -120,14 +134,14 @@ section:nth-child(odd) {
     padding-top: 0.5rem;
   }
   .duo {
-    margin-bottom: -4rem;
+    margin-bottom: -3rem;
   }
   .duo > div {
+    grid-area: bottom;
     transform: translateY(-4rem);
-    order: 2;
   }
   .duo > img {
-    order: 1;
+    grid-area: top;
   }
   footer {
     margin: 2rem 0 0 0;

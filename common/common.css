@@ -85,25 +85,21 @@ input[type="email"] {
 
 /* left-right when screen is large enough, top-down otherwise */
 .duo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  align-items: stretch;
 }
 /* non-phone */
 @media screen and (min-width: 560px) {
-  .duo > * {
-    width: 50%;
-    margin: 0;
+  .duo {
+    grid-template-areas: "left right" "left right";
   }
 }
 
 /* phone */
 @media screen and (max-width: 559px) {
   .duo {
-    flex-wrap: wrap;
-  }
-  .duo > * {
-    width: 100%;
-    margin: 0;
+    grid-template-areas: "top top" "bottom bottom";
   }
 }

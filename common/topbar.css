@@ -48,10 +48,11 @@ header > .links {
 .hamburgerexpanded {
   z-index: 10;
   position: fixed;
-  left: 50%;
+  left: 100%;
   top: 0;
   right: 0;
   bottom: 0;
+  overflow: visible;
 }
 .hamburgerexpanded > .links {
   display: flex;
@@ -66,7 +67,7 @@ header > .links {
   justify-content: center;
   align-content: center;
   align-items: center;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 .clickaway {
   position: absolute;
@@ -87,7 +88,7 @@ header > .links {
   right: 0;
   top: 0;
   padding: 0.9rem;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease;
   font-size: 1.2rem;
   height: 3rem;
   width: 3rem;
