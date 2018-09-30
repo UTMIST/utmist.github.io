@@ -1,6 +1,12 @@
-const pug = require('pug');
+const pug = require("pug");
+const fs = require("fs");
 
-// Compile the source code
-const compiledFunction = pug.compileFile('home.pug');
-
-console.log(compiledFunction());
+function compile() {
+  const files = fs.readdirSync(".");
+  files.filter(fn => fn.endsWith(".pug")).forEach(pg => {
+    const html = pug.renderFile(pg);
+    fs.writeFileSync(pg.replace(".pug", ".html"), html);
+  });
+};
+compile()
+module.exports = compile

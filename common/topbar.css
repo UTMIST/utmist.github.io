@@ -1,0 +1,125 @@
+header {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  overflow-x: auto;
+  height: 3rem;
+}
+header + * {
+  margin-top: 3rem;
+}
+header,
+.hamburgerexpanded {
+  color: white;
+}
+#logolink {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 9rem;
+  margin: 0 5%;
+}
+#logolink > img {
+  height: 2.5rem;
+}
+#logolink > h2 {
+  height: 2rem;
+  margin: 0 0.4rem;
+}
+
+.links {
+  font-family: OpenSansCondensedBold, sans-serif;
+  font-size: 1.2rem;
+}
+header > .links {
+  align-items: flex-end;
+  height: 66%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.hamburgerexpanded {
+  z-index: 10;
+  position: fixed;
+  left: 50%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.hamburgerexpanded > .links {
+  display: flex;
+  position: fixed;
+  top: 3rem;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--purple);
+  opacity: 0.9;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+.clickaway {
+  position: absolute;
+  position: fixed;
+  top: 3rem;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+}
+.hamburger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+.hamburger > i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.9rem;
+  transition: transform 0.2s;
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+@media screen and (min-width: 560px) {
+  /* disable hamburger buttons on desktop */
+  .hamburgerexpanded {
+    display: none;
+  }
+  .links > a {
+    margin: 0 2rem;
+  }
+}
+@media screen and (max-width: 559px) {
+  /* hide header links */
+  header > .links {
+    display: none;
+  }
+  .links > a {
+    margin: 0.5rem 0;
+    border-bottom: 2px solid white;
+  }
+  #menuopen:not(:checked) ~ .clickaway {
+    display: none;
+  }
+  #menuopen:not(:checked) ~ .links {
+    transform: translateX(100%);
+  }
+  #menuopen:not(:checked) ~ label .close {
+    transform: scale(0);
+  }
+  #menuopen:checked ~ label .open {
+    transform: scale(0);
+  }
+}

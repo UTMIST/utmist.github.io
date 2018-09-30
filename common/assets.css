@@ -1,0 +1,31 @@
+@font-face {
+  font-family: OpenSansCondensedLight;
+  src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf);
+}
+@font-face {
+  font-family: OpenSansCondensedBold;
+  src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: Instruction;
+  src: url(Fonts/instruction/Instruction.otf);
+}
+@font-face {
+  font-family: Lato;
+  src: url(Fonts/Lato/Lato-Regular.ttf);
+}
+
+body {
+  --primary: #0033a0;
+  --darkest: #001f61;
+  --darker: #002981;
+  --lighter: #0044d4;
+  --lightest: #0d59fb;
+  --purple: #43219a;
+  --green: #00928c;
+  --yellow: #f0c600;
+  --orange: #f06b00;
+  --grey: #f6f6f6;
+  --darkshadow: 0 2px 6px #333333;
+  --lightshadow: 0 2px 6px white;
+}

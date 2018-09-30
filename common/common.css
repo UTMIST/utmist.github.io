@@ -1,0 +1,106 @@
+h1,
+h2 {
+  font-family: OpenSansCondensedBold, sans-serif;
+}
+
+.splash {
+  position: relative;
+  background-image: url("https://via.placeholder.com/1200x900");
+  width: 100%;
+  height: 50rem;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex.vertical {
+  flex-direction: column;
+}
+
+.flex.justify-center {
+  justify-content: center;
+}
+
+.flex.align-center {
+  align-items: center;
+}
+
+.flex.wrap {
+  flex-wrap: wrap;
+}
+.halfwidth {
+  width: 50%;
+}
+.fullwidth {
+  width: 100%;
+}
+.fullscreen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.text-center {
+  text-align: center;
+}
+.margin-auto {
+  margin: auto;
+}
+.default-margin {
+  margin: 1rem;
+}
+.action {
+  text-transform: uppercase;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-family: Instruction, sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.action.solid {
+  background-color: var(--primary);
+  color: white;
+  outline: none;
+}
+.action.outline {
+  outline: 4px solid var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+}
+
+input[type="text"],
+input[type="email"] {
+  outline: 1px solid gray;
+}
+
+/* left-right when screen is large enough, top-down otherwise */
+.duo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* non-phone */
+@media screen and (min-width: 560px) {
+  .duo > * {
+    width: 50%;
+    margin: 0;
+  }
+}
+
+/* phone */
+@media screen and (max-width: 559px) {
+  .duo {
+    flex-wrap: wrap;
+  }
+  .duo > * {
+    width: 100%;
+    margin: 0;
+  }
+}

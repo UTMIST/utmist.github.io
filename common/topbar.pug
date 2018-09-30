@@ -1,8 +1,21 @@
-header
-    a(href="home.html" id="tohome" target="_blank" rel="noopener")
-        img(src="Logo/SVG/White Brain.svg" class="logo")
-        h2 UTMIST
-    nav
+mixin links
+    nav.links
         a(href="event.html" target="_blank" rel="noopener") Events
         a(href="about.html" target="_blank" rel="noopener") About Us
         a(href="#contact") Contact
+style
+    include topbar.css
+.hamburgerexpanded
+    input#menuopen(type="checkbox" hidden)
+    label.hamburger(for="menuopen")
+        i.fas.fa-bars.open
+        i.fas.fa-times.close
+    label.clickaway(for="menuopen")
+    +links
+header
+    a#logolink(href="home.html" target="_blank" rel="noopener")
+        img(src="Logo/SVG/White Brain.svg")
+        h2 UTMIST
+    //- TODO: show hamburger when in small screen
+    +links
+    

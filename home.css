@@ -1,0 +1,125 @@
+/* popping headline */
+.splash > h1 {
+  position: absolute;
+  right: 5%;
+  top: 30%;
+  max-width: 32rem;
+  width: 40%;
+  word-spacing: 1rem;
+  letter-spacing: 0.1rem;
+  text-align: left;
+  color: white;
+  text-shadow: var(--darkshadow);
+}
+
+section:nth-child(odd) {
+  background: var(--grey);
+}
+
+.card-container {
+  max-width: 64rem;
+  width: 100%;
+  padding: 5%;
+  overflow-x: auto;
+}
+
+.card {
+  width: 15rem;
+  margin: 0.5rem;
+  flex-shrink: 0;
+}
+
+.action {
+  max-width: 15rem;
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.abouttext,
+.intouchtext {
+  padding: 0 5%;
+}
+.abouttext > h1 {
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.sponsor > h1 {
+  color: var(--green);
+  margin-bottom: 0;
+}
+.sponsor {
+  padding-bottom: 1rem;
+}
+
+.intouchtext > form > .action {
+  width: auto;
+}
+.intouchtext > form > #newsletter {
+  height: 2.3rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  font-family: Instruction,sans-serif;
+}
+
+/* non-phone */
+@media screen and (min-width: 560px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .action {
+    max-width: 38rem;
+  }
+  .card-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+  .intouchtext .action {
+    margin-left: 0;
+  }
+  .intouchtext > form > #newsletter {
+    margin-right: 0.5rem;
+    flex-grow: 1;
+  }
+}
+
+/* phone */
+@media screen and (max-width: 559px) {
+  .intouchtext > form {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .intouchtext > form > #newsletter {
+    width: 90%;
+    max-width: 15rem;
+  }
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .splash > h1 {
+    font-size: 1.5rem;
+  }
+  .duo > div > h1 {
+    background-color: white;
+    border-radius: 1rem 1rem 0 0;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-top: 0.5rem;
+  }
+  .duo {
+    margin-bottom: -4rem;
+  }
+  .duo > div {
+    transform: translateY(-4rem);
+    order: 2;
+  }
+  .duo > img {
+    order: 1;
+  }
+  footer{
+    margin: 2rem 0 0 0;
+  }
+}

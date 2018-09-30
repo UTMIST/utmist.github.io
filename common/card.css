@@ -1,0 +1,43 @@
+.card {
+  display: grid;
+  /* no margin for img */
+  grid-template-areas:
+    "img img img img"
+    ". tag date ."
+    ". title title ."
+    ". content content .";
+  grid-row-gap: 0.5rem;
+  grid-column-gap: 0.6rem;
+  padding-bottom: 0.6rem;
+  box-shadow: var(--darkshadow);
+  border-radius: 2px;
+}
+
+.card > * {
+  margin: 0;
+}
+
+.card > img {
+  grid-area: img;
+  width: 100%;
+}
+
+.card > .tag {
+  grid-area: tag;
+  font-family: Instruction;
+}
+
+.card > .date {
+  grid-area: date;
+  text-align: right;
+  opacity: 0.7;
+}
+
+.card > .title {
+  grid-area: title;
+}
+
+.card > .content {
+  grid-area: content;
+  opacity: 0.7;
+}

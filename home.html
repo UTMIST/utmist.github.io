@@ -1,95 +1,462 @@
-<html>
+<!DOCTYPE html><html lang="en"><head><!DOCTYPE html><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/><style>@font-face {
+  font-family: OpenSansCondensedLight;
+  src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf);
+}
+@font-face {
+  font-family: OpenSansCondensedBold;
+  src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: Instruction;
+  src: url(Fonts/instruction/Instruction.otf);
+}
+@font-face {
+  font-family: Lato;
+  src: url(Fonts/Lato/Lato-Regular.ttf);
+}
 
-<head>
-	<title>UTMIST</title>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<link rel="apple-touch-icon" href="Logo/Blue Brainx2.png">
-	<link rel="apple-touch-startup-image" href="Logo/Blue Bottomx2.png">
-	<!-- SEO -->
-	<meta property="og:title" content="UTMIST - Home" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="http://utmist.github.io" />
-	<meta property="og:image" content="Logo/Blue Bottomx2.png" />
+body {
+  --primary: #0033a0;
+  --darkest: #001f61;
+  --darker: #002981;
+  --lighter: #0044d4;
+  --lightest: #0d59fb;
+  --purple: #43219a;
+  --green: #00928c;
+  --yellow: #f0c600;
+  --orange: #f06b00;
+  --grey: #f6f6f6;
+  --darkshadow: 0 2px 6px #333333;
+  --lightshadow: 0 2px 6px white;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+* {
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Lato, sans-serif;
+}
+button,
+input[type="submit"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+h1,
+h2 {
+  font-family: OpenSansCondensedBold, sans-serif;
+}
 
-	<!-- <script defer src="//use.fontawesome.com/releases/v5.3.1/js/all.js" integrity="sha384-kW+oWsYx3YpxvjtZjFXqazFpA7UP/MbiY4jvs+RWZo2+N94PFZ36T6TFkc9O3qoB"
-	 crossorigin="anonymous"></script> -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	 crossorigin="anonymous">
-	<link rel="stylesheet" href="common.css" />
-	<link rel="stylesheet" href="index.css" />
-</head>
+.splash {
+  position: relative;
+  background-image: url("https://via.placeholder.com/1200x900");
+  width: 100%;
+  height: 50rem;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-<body>
-	<header>
-		<a href="home.html" id="tohome" target="_blank" rel="noopener">
-			<img src="Logo/SVG/White Brain.svg" class="logo" />
-			<h2>UTMIST</h2>
-		</a>
-		<form id="newsletter" method="GET">
-			<input type="email" autocomplete="email" class="ondark" placeholder="get newsletters" id="newsletter-input" />
-			<input type="submit" class="accent btn ondark" value="Send" id="newsletter-submit" />
-		</form>
-	</header>
-	<div class="fullcover-wrap">
-		<video autoplay muted loop class="fullcover-bg">
-			<source src="//burst.shopifycdn.com/photos/Nicole-Coffee-Cinemagraph.mp4?attachment=Nicole-Coffee-Cinemagraph.mp4" />
-		</video>
-		<div class="fullcover-content">
-			<h3>Happening Right Now</h3>
-			<div>Live: <i class="fab fa-youtube"></i></div>
-			<div>Location: BA2130</div>
-			<div>Waitlist: 3</div>
-			<a href="//pigeonhole.at/UTMIST" class="accent btn" id="askq">
-				Ask a question
-			</a>
-		</div>
-	</div>
+.flex {
+  display: flex;
+}
 
-	<h3>Events
-		<a href="events.html" class="tosection" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i></a>
-	</h3>
-	<div id="events" class="card-container">
-		<a class="card" href="#" target="_blank" rel="noopener noreferrer">
-			<i class="fab fa-elementor card-icon"></i>
-			<div class="card-header">MIST101</div>
-			<div class="card-title">Linear Algebra Basics</div>
-			<div class="card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</div>
-			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg" />
-			<div class="card-footer">a week ago</div>
-		</a>
-		<a class="card" href="#" target="_blank" rel="noopener noreferrer">
-			<i class="fab fa-elementor card-icon"></i>
-			<div class="card-header">MIST101</div>
-			<div class="card-title">Linear Algebra Basics</div>
-			<div class="card-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</div>
-			<img class="card-img" src="//burst.shopifycdn.com/photos/coffee-beans-from-above_925x.jpg?attachment=coffee-beans-from-above_925x.jpg" />
-			<div class="card-footer">a week ago</div>
-		</a>
-	</div>
-	<!-- <div>
-		recent projects carousel
-	</div> -->
-	<h3>About Us</h3>
-	<p>
-		University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization
-		within the
-		University of Toronto. Our mission is to let more people get to know about artificial intelligence, “Clear the mist”!
-		<a href="about.html" target="_blank" rel="noopener">learn more</a>
-	</p>
-	<h3>Sponsors</h3>
-	<p>UTMIST wouldn't be so great without</p>
-	<div class="sponsors">
-		<img src="//pigment.github.io/fake-logos/logos/vector/color/greens-food-suppliers.svg" />
-		<img src="//pigment.github.io/fake-logos/logos/vector/color/auto-speed.svg" />
-		<img src="//pigment.github.io/fake-logos/logos/small/color/cheshire-county-hygiene-services.png" />
-	</div>
-	<br>
-	<br> <br> <br> <br>
-	<footer>
-		This site is maintained by xxx
-	</footer>
-</body>
+.flex.vertical {
+  flex-direction: column;
+}
 
-</html>
+.flex.justify-center {
+  justify-content: center;
+}
+
+.flex.align-center {
+  align-items: center;
+}
+
+.flex.wrap {
+  flex-wrap: wrap;
+}
+.halfwidth {
+  width: 50%;
+}
+.fullwidth {
+  width: 100%;
+}
+.fullscreen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.text-center {
+  text-align: center;
+}
+.margin-auto {
+  margin: auto;
+}
+.default-margin {
+  margin: 1rem;
+}
+.action {
+  text-transform: uppercase;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-family: Instruction, sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.action.solid {
+  background-color: var(--primary);
+  color: white;
+  outline: none;
+}
+.action.outline {
+  outline: 4px solid var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+}
+
+input[type="text"],
+input[type="email"] {
+  outline: 1px solid gray;
+}
+
+/* left-right when screen is large enough, top-down otherwise */
+.duo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* non-phone */
+@media screen and (min-width: 560px) {
+  .duo > * {
+    width: 50%;
+    margin: 0;
+  }
+}
+
+/* phone */
+@media screen and (max-width: 559px) {
+  .duo {
+    flex-wrap: wrap;
+  }
+  .duo > * {
+    width: 100%;
+    margin: 0;
+  }
+}
+</style><title>UTMIST</title><style>.card {
+  display: grid;
+  /* no margin for img */
+  grid-template-areas:
+    "img img img img"
+    ". tag date ."
+    ". title title ."
+    ". content content .";
+  grid-row-gap: 0.5rem;
+  grid-column-gap: 0.6rem;
+  padding-bottom: 0.6rem;
+  box-shadow: var(--darkshadow);
+  border-radius: 2px;
+}
+
+.card > * {
+  margin: 0;
+}
+
+.card > img {
+  grid-area: img;
+  width: 100%;
+}
+
+.card > .tag {
+  grid-area: tag;
+  font-family: Instruction;
+}
+
+.card > .date {
+  grid-area: date;
+  text-align: right;
+  opacity: 0.7;
+}
+
+.card > .title {
+  grid-area: title;
+}
+
+.card > .content {
+  grid-area: content;
+  opacity: 0.7;
+}
+/* popping headline */
+.splash > h1 {
+  position: absolute;
+  right: 5%;
+  top: 30%;
+  max-width: 32rem;
+  width: 40%;
+  word-spacing: 1rem;
+  letter-spacing: 0.1rem;
+  text-align: left;
+  color: white;
+  text-shadow: var(--darkshadow);
+}
+
+section:nth-child(odd) {
+  background: var(--grey);
+}
+
+.card-container {
+  max-width: 64rem;
+  width: 100%;
+  padding: 5%;
+  overflow-x: auto;
+}
+
+.card {
+  width: 15rem;
+  margin: 0.5rem;
+  flex-shrink: 0;
+}
+
+.action {
+  max-width: 15rem;
+  width: 90%;
+  margin: 1rem auto;
+}
+
+.abouttext,
+.intouchtext {
+  padding: 0 5%;
+}
+.abouttext > h1 {
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
+.sponsor > h1 {
+  color: var(--green);
+  margin-bottom: 0;
+}
+.sponsor {
+  padding-bottom: 1rem;
+}
+
+.intouchtext > form > .action {
+  width: auto;
+}
+.intouchtext > form > #newsletter {
+  height: 2.3rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  font-family: Instruction,sans-serif;
+}
+
+/* non-phone */
+@media screen and (min-width: 560px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .action {
+    max-width: 38rem;
+  }
+  .card-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+  .intouchtext .action {
+    margin-left: 0;
+  }
+  .intouchtext > form > #newsletter {
+    margin-right: 0.5rem;
+    flex-grow: 1;
+  }
+}
+
+/* phone */
+@media screen and (max-width: 559px) {
+  .intouchtext > form {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+  .intouchtext > form > #newsletter {
+    width: 90%;
+    max-width: 15rem;
+  }
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .splash > h1 {
+    font-size: 1.5rem;
+  }
+  .duo > div > h1 {
+    background-color: white;
+    border-radius: 1rem 1rem 0 0;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    padding-top: 0.5rem;
+  }
+  .duo {
+    margin-bottom: -4rem;
+  }
+  .duo > div {
+    transform: translateY(-4rem);
+    order: 2;
+  }
+  .duo > img {
+    order: 1;
+  }
+  footer{
+    margin: 2rem 0 0 0;
+  }
+}
+</style></head><body><style>header {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  overflow-x: auto;
+  height: 3rem;
+}
+header + * {
+  margin-top: 3rem;
+}
+header,
+.hamburgerexpanded {
+  color: white;
+}
+#logolink {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 9rem;
+  margin: 0 5%;
+}
+#logolink > img {
+  height: 2.5rem;
+}
+#logolink > h2 {
+  height: 2rem;
+  margin: 0 0.4rem;
+}
+
+.links {
+  font-family: OpenSansCondensedBold, sans-serif;
+  font-size: 1.2rem;
+}
+header > .links {
+  align-items: flex-end;
+  height: 66%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.hamburgerexpanded {
+  z-index: 10;
+  position: fixed;
+  left: 50%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.hamburgerexpanded > .links {
+  display: flex;
+  position: fixed;
+  top: 3rem;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--purple);
+  opacity: 0.9;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+.clickaway {
+  position: absolute;
+  position: fixed;
+  top: 3rem;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+}
+.hamburger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+.hamburger > i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.9rem;
+  transition: transform 0.2s;
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+@media screen and (min-width: 560px) {
+  /* disable hamburger buttons on desktop */
+  .hamburgerexpanded {
+    display: none;
+  }
+  .links > a {
+    margin: 0 2rem;
+  }
+}
+@media screen and (max-width: 559px) {
+  /* hide header links */
+  header > .links {
+    display: none;
+  }
+  .links > a {
+    margin: 0.5rem 0;
+    border-bottom: 2px solid white;
+  }
+  #menuopen:not(:checked) ~ .clickaway {
+    display: none;
+  }
+  #menuopen:not(:checked) ~ .links {
+    transform: translateX(100%);
+  }
+  #menuopen:not(:checked) ~ label .close {
+    transform: scale(0);
+  }
+  #menuopen:checked ~ label .open {
+    transform: scale(0);
+  }
+}
+</style><div class="hamburgerexpanded"><input id="menuopen" type="checkbox" hidden="hidden"/><label class="hamburger" for="menuopen"><i class="fas fa-bars open"></i><i class="fas fa-times close"></i></label><label class="clickaway" for="menuopen"></label><nav class="links"><a href="event.html" target="_blank" rel="noopener">Events</a><a href="about.html" target="_blank" rel="noopener">About Us</a><a href="#contact">Contact</a></nav></div><header><a id="logolink" href="home.html" target="_blank" rel="noopener"><img src="Logo/SVG/White Brain.svg"/><h2>UTMIST</h2></a><nav class="links"><a href="event.html" target="_blank" rel="noopener">Events</a><a href="about.html" target="_blank" rel="noopener">About Us</a><a href="#contact">Contact</a></nav></header><section class="splash"><h1>We’re here to clear the mist around AI</h1></section><section class="flex vertical align-center"><h1>Events</h1><div class="card-container flex"><a class="card" href="#"><img src="https://via.placeholder.com/150x150"/><span class="tag">MIST101</span><span class="date">A day ago</span><h4 class="title">Linear Algebra Basics</h4><p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</p></a><a class="card" href="#"><img src="https://via.placeholder.com/150x150"/><span class="tag">MIST101</span><span class="date">A day ago</span><h4 class="title">Linear Algebra Basics</h4><p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</p></a><a class="card" href="#"><img src="https://via.placeholder.com/150x150"/><span class="tag">MIST101</span><span class="date">A day ago</span><h4 class="title">Linear Algebra Basics</h4><p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</p></a><a class="card" href="#"><img src="https://via.placeholder.com/150x150"/><span class="tag">MIST101</span><span class="date">A day ago</span><h4 class="title">Linear Algebra Basics</h4><p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</p></a><a class="card" href="#"><img src="https://via.placeholder.com/150x150"/><span class="tag">MIST101</span><span class="date">A day ago</span><h4 class="title">Linear Algebra Basics</h4><p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</p></a><a class="card" href="#"><img src="https://via.placeholder.com/150x150"/><span class="tag">MIST101</span><span class="date">A day ago</span><h4 class="title">Linear Algebra Basics</h4><p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</p></a><a class="card" href="#"><img src="https://via.placeholder.com/150x150"/><span class="tag">MIST101</span><span class="date">A day ago</span><h4 class="title">Linear Algebra Basics</h4><p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</p></a><a class="card" href="#"><img src="https://via.placeholder.com/150x150"/><span class="tag">MIST101</span><span class="date">A day ago</span><h4 class="title">Linear Algebra Basics</h4><p class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.</p></a></div><a class="action solid" href="event.html">VIEW ALL</a><br/></section><section class="duo"><img src="http://utmist.sa.utoronto.ca/files/2017/08/Photo-2017-07-22-3-24-53-PM-1024x683.jpg"/><div class="abouttext flex vertical"><h1>About Us</h1><p>University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization within the University of Toronto. Our mission is to let more people get to know about artificial intelligence and “clear the mist” around it! </p><a class="action solid" href="about.html">READ MORE</a></div></section><section class="flex wrap justify-center sponsor"><h1 class="fullwidth text-center">Thanks to Our Sponsors</h1><p class="fullwidth text-center">UTMIST wouldn't be so great without</p><img class="default-margin" src="https://via.placeholder.com/150x150"/><img class="default-margin" src="https://via.placeholder.com/150x150"/><img class="default-margin" src="https://via.placeholder.com/150x150"/><img class="default-margin" src="https://via.placeholder.com/150x150"/></section><section class="duo"><div class="intouchtext flex vertical"><h1>Newsletter</h1><form class="flex align-center" action="#" method="GET"><input id="newsletter" type="email" name="email" placeholder="EMAIL"/><input class="action solid" type="submit" value="SUBSCRIBE"/></form><h1>Get in touch</h1><button class="action outline question">GOT A QUESTION?</button></div><img src="https://via.placeholder.com/250x250"/></section><footer class="flex vertical justify-center"><div class="text-center">© 2018 University of Toronto Machine Intelligence Team</div><a href="#">Back to top</a><style>footer{
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    padding: 1rem;
+}
+footer>a{
+    margin: 1rem auto 0 auto;
+    text-decoration: underline;
+    font-weight: bold;
+}</style></footer></body></html>

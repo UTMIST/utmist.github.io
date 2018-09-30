@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel home.html",
-    "build": "parcel build home.html"
+    "start": "node watch.js",
+    "build": "node compile.js"
   },
   "dependencies": {},
   "devDependencies": {

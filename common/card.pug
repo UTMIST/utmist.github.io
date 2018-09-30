@@ -1,0 +1,7 @@
+mixin card(imgsrc,tag,title,content,date,linkto)
+    a.card(href=linkto)
+        img(src=imgsrc)
+        span.tag= tag
+        span.date= date
+        h4.title= title
+        p.content= content
