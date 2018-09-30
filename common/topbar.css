@@ -29,6 +29,7 @@ header,
   height: 2.5rem;
 }
 #logolink > h2 {
+  font-family: Instruction, sans-serif;
   height: 2rem;
   margin: 0 0.4rem;
 }
