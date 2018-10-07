@@ -17,18 +17,18 @@
 }
 
 section:nth-child(odd) {
-  background: var(--grey);
+  /* background: var(--grey); */
 }
 
 .card-container {
-  max-width: 64rem;
+  max-width: 72rem;
   width: 100%;
   padding: 5%;
   overflow-x: auto;
 }
 
 .card {
-  width: 15rem;
+  width: 17rem;
   margin: 0.5rem;
   flex-shrink: 0;
 }
@@ -44,10 +44,10 @@ section:nth-child(odd) {
   padding: 5%;
   margin: auto;
 }
-.abouttext > h1 {
+/* .abouttext > h1 {
   margin-bottom: 0;
   margin-top: 1rem;
-}
+} */
 
 .sponsor > h1 {
   color: var(--green);
@@ -79,7 +79,7 @@ p {
 }
 
 /* non-phone */
-@media screen and (min-width: 560px) {
+@media screen and (min-width: 590px) {
   h1 {
     font-size: 3rem;
   }
@@ -98,13 +98,13 @@ p {
     margin-right: 0.5rem;
     flex-grow: 1;
   }
-  .intouchtext > h1 {
+  /* .intouchtext > h1 {
     margin: 0.5rem 0;
-  }
+  } */
 }
 
 /* phone */
-@media screen and (max-width: 559px) {
+@media screen and (max-width: 589px) {
   .intouchtext > form {
     flex-wrap: wrap;
     width: 100%;
@@ -129,12 +129,13 @@ p {
   .duo > div > h1 {
     background-color: white;
     border-radius: 1rem 1rem 0 0;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    margin: 1rem auto;
     padding-top: 0.5rem;
+    width: 14rem;
   }
   .duo {
     margin-bottom: -3rem;
+    grid-template-rows: 1fr 1fr;
   }
   .duo > div {
     grid-area: bottom;

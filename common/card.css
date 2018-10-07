@@ -11,6 +11,7 @@
   padding-bottom: 0.6rem;
   box-shadow: var(--darkshadow);
   border-radius: 2px;
+  overflow: hidden;
 }
 
 .card > * {

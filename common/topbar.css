@@ -94,7 +94,7 @@ header > .links {
   width: 3rem;
 }
 
-@media screen and (min-width: 560px) {
+@media screen and (min-width: 590px) {
   /* disable hamburger buttons on desktop */
   .hamburgerexpanded {
     display: none;
@@ -103,7 +103,7 @@ header > .links {
     margin: 0 2rem;
   }
 }
-@media screen and (max-width: 559px) {
+@media screen and (max-width: 589px) {
   /* hide header links */
   header > .links {
     display: none;

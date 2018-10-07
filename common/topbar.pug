@@ -1,7 +1,7 @@
 mixin links
     nav.links
-        a(href="event.html" target="_blank" rel="noopener") Events
-        a(href="about.html" target="_blank" rel="noopener") About Us
+        a(href="#event") Events
+        a(href="#about") About Us
         a(href="#contact") Contact
 style
     include topbar.css
@@ -13,7 +13,7 @@ style
     label.clickaway(for="menuopen")
     +links
 header
-    a#logolink(href="home.html" target="_blank" rel="noopener")
+    a#logolink(href="/" target="_blank" rel="noopener")
         img(src="Logo/SVG/White Brain.svg")
         h2 UTMIST
     //- TODO: show hamburger when in small screen

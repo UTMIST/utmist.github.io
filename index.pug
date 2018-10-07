@@ -1,0 +1,43 @@
+include common/card.pug
+<!DOCTYPE html>
+html(lang="en")
+    head
+        include common/head.pug
+        title UTMIST
+        style
+            include common/card.css
+            include index.css
+    body
+        include common/topbar.pug
+        section.splash
+            h1 We’re here to clear the mist around AI
+        section#event.flex.vertical.align-center
+            h1 Events
+            div.card-container.flex
+                //- each val in [1,2,3,4,5,6,7,8]
+                //-     +card("https://via.placeholder.com/150x150","MIST101","Linear Algebra Basics","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.","A day ago","#")
+                +card("assets/linghuan.jpg","Paper Reading","Graph Neural Net On Computer Vision","Led by Arie Huan Ling, Graduate Research Student at University of Toronto, Nvidia AI Research lab and Vector Institute","Oct 9 6:30pm","https://www.eventbrite.ca/e/utmist-paper-reading-group-1-graph-neural-net-on-computer-vision-problems-tickets-50864029682?utm_source=2018+Mailing+List&utm_campaign=ae33ca5bf0-EMAIL_CAMPAIGN_2018_10_05_03_43&utm_medium=email&utm_term=0_e5040d3cd0-ae33ca5bf0-107591419")
+            a.action.solid(href="//utmist.sa.utoronto.ca/" target="_blank" rel="noopener") VIEW ALL
+            br
+        section#about.duo
+            img(src="http://utmist.sa.utoronto.ca/files/2017/08/Photo-2017-07-22-3-24-53-PM-1024x683.jpg")
+            div.abouttext.flex.vertical
+                h1 About Us
+                p University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization within the University of Toronto. Our mission is to let more people get to know about artificial intelligence and “clear the mist” around it! 
+                a.action.solid(href="//utmist.sa.utoronto.ca/our-team/" target="_blank" rel="noopener") READ MORE
+        //- section.flex.wrap.justify-center.sponsor
+        //-     h1.fullwidth.text-center Thanks to Our Sponsors
+        //-     p.fullwidth.text-center UTMIST wouldn't be so great without
+        //-     each val in [1,2,3,4]
+        //-         img.default-margin(src="https://via.placeholder.com/150x150")
+        section#contact.duo
+            div.intouchtext.flex.vertical
+                h1 Newsletter
+                //- form.flex.align-center(action="#" method="GET")
+                    input#newsletter(type="email", name="email" placeholder="EMAIL")
+                    input.action.solid(type="submit", value="SUBSCRIBE")
+                a.action.solid(href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&id=e5040d3cd0" target="_blank" rel="noopener") Subscribe
+                h1 Get in touch
+                a.action.outline.question(href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener") GOT A QUESTION?
+            img(src="assets/betty.jpg")
+        include common/footer.pug

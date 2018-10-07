@@ -1,1 +1,493 @@
-<meta http-equiv="Refresh" content="0; url=https://utmist.sa.utoronto.ca/">
+<!DOCTYPE html><html lang="en"><head><!DOCTYPE html><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/><style>@font-face {
+  font-family: OpenSansCondensedLight;
+  src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf);
+}
+@font-face {
+  font-family: OpenSansCondensedBold;
+  src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: Instruction;
+  src: url(Fonts/instruction/Instruction.otf);
+}
+@font-face {
+  font-family: Lato;
+  src: url(Fonts/Lato/Lato-Regular.ttf);
+}
+
+body {
+  --primary: #0033a0;
+  --darkest: #001f61;
+  --darker: #002981;
+  --lighter: #0044d4;
+  --lightest: #0d59fb;
+  --purple: #43219a;
+  --green: #00928c;
+  --yellow: #f0c600;
+  --orange: #f06b00;
+  --grey: #f6f6f6;
+  --darkshadow: 0 2px 6px #333333;
+  --lightshadow: 0 2px 6px white;
+}
+/* overwrite browser defaults for inconsistencies */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+* {
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Lato, sans-serif;
+}
+input {
+  min-width: 0;
+}
+button,
+input[type="submit"],
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+h1,
+h2 {
+  font-family: OpenSansCondensedBold, sans-serif;
+}
+
+.splash {
+  position: relative;
+  width: 100%;
+  max-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex.vertical {
+  flex-direction: column;
+}
+
+.flex.justify-center {
+  justify-content: center;
+}
+
+.flex.align-center {
+  align-items: center;
+}
+
+.flex.wrap {
+  flex-wrap: wrap;
+}
+.halfwidth {
+  width: 50%;
+}
+.fullwidth {
+  width: 100%;
+}
+.fullscreen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.text-center {
+  text-align: center;
+}
+.margin-auto {
+  margin: auto;
+}
+.default-margin {
+  margin: 1rem;
+}
+.action {
+  text-transform: uppercase;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-family: Instruction, sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.action.solid,
+.action.outline:hover:not(:active) {
+  background-color: var(--primary);
+  color: white;
+  outline: none;
+}
+.action.outline,
+.action.solid:hover:not(:active) {
+  outline: 4px solid var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+}
+
+input[type="text"],
+input[type="email"] {
+  outline: 1px solid var(--primary);
+  border: 0;
+}
+
+/* left-right when screen is large enough, top-down otherwise */
+.duo {
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  align-items: stretch;
+}
+/* non-phone */
+@media screen and (min-width: 590px) {
+  .duo {
+    grid-template-areas: "left right" "left right";
+  }
+}
+
+/* phone */
+@media screen and (max-width: 589px) {
+  .duo {
+    grid-template-areas: "top top" "bottom bottom";
+  }
+}
+</style><title>UTMIST</title><style>.card {
+  display: grid;
+  /* no margin for img */
+  grid-template-areas:
+    "img img img img"
+    ". tag date ."
+    ". title title ."
+    ". content content .";
+  grid-row-gap: 0.5rem;
+  grid-column-gap: 0.6rem;
+  padding-bottom: 0.6rem;
+  box-shadow: var(--darkshadow);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.card > * {
+  margin: 0;
+}
+
+.card > img {
+  grid-area: img;
+  width: 100%;
+}
+
+.card > .tag {
+  grid-area: tag;
+  font-family: Instruction;
+}
+
+.card > .date {
+  grid-area: date;
+  text-align: right;
+  opacity: 0.7;
+}
+
+.card > .title {
+  grid-area: title;
+}
+
+.card > .content {
+  grid-area: content;
+  opacity: 0.7;
+}
+.splash {
+  background-image: url("http://utmist.sa.utoronto.ca/files/2017/10/20171005-DSC_0003.jpg");
+  height: calc(100vh - 3rem);
+}
+/* popping headline */
+.splash > h1 {
+  position: absolute;
+  right: 5%;
+  top: 30%;
+  max-width: 32rem;
+  width: 40%;
+  word-spacing: 1rem;
+  letter-spacing: 0.1rem;
+  text-align: left;
+  color: white;
+  text-shadow: var(--darkshadow);
+}
+
+section:nth-child(odd) {
+  /* background: var(--grey); */
+}
+
+.card-container {
+  max-width: 72rem;
+  width: 100%;
+  padding: 5%;
+  overflow-x: auto;
+}
+
+.card {
+  width: 17rem;
+  margin: 0.5rem;
+  flex-shrink: 0;
+}
+
+.action {
+  max-width: 15rem;
+  width: 90%;
+  margin: 0.5rem auto;
+}
+
+.abouttext,
+.intouchtext {
+  padding: 5%;
+  margin: auto;
+}
+/* .abouttext > h1 {
+  margin-bottom: 0;
+  margin-top: 1rem;
+} */
+
+.sponsor > h1 {
+  color: var(--green);
+  margin-bottom: 0;
+}
+.sponsor {
+  padding-bottom: 1rem;
+}
+
+.intouchtext > form > .action {
+  width: auto;
+}
+.intouchtext > form > #newsletter {
+  height: 2.3rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  font-family: Instruction, sans-serif;
+}
+
+.duo > img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+p {
+  line-height: 1.6rem;
+}
+
+/* non-phone */
+@media screen and (min-width: 590px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .action {
+    max-width: 38rem;
+  }
+  .card-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+  }
+  .intouchtext .action {
+    margin-left: 0;
+  }
+  .intouchtext > form > #newsletter {
+    margin-right: 0.5rem;
+    flex-grow: 1;
+  }
+  /* .intouchtext > h1 {
+    margin: 0.5rem 0;
+  } */
+}
+
+/* phone */
+@media screen and (max-width: 589px) {
+  .intouchtext > form {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    max-width: 18rem;
+    margin: auto;
+  }
+  .intouchtext > form > #newsletter {
+    width: 90%;
+    margin: auto;
+  }
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .splash > h1 {
+    font-size: 2.5rem;
+    top: 15%;
+    word-spacing: 0;
+    width: 50%;
+  }
+  .duo > div > h1 {
+    background-color: white;
+    border-radius: 1rem 1rem 0 0;
+    margin: 1rem auto;
+    padding-top: 0.5rem;
+    width: 14rem;
+  }
+  .duo {
+    margin-bottom: -3rem;
+    grid-template-rows: 1fr 1fr;
+  }
+  .duo > div {
+    grid-area: bottom;
+    transform: translateY(-4rem);
+  }
+  .duo > img {
+    grid-area: top;
+  }
+  footer {
+    margin: 2rem 0 0 0;
+  }
+}
+</style></head><body><style>header {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  overflow-x: auto;
+  height: 3rem;
+}
+header + * {
+  margin-top: 3rem;
+}
+header,
+.hamburgerexpanded {
+  color: white;
+}
+#logolink {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 9rem;
+  margin: 0 5%;
+}
+#logolink > img {
+  height: 2.5rem;
+}
+#logolink > h2 {
+  font-family: Instruction, sans-serif;
+  height: 2rem;
+  margin: 0 0.4rem;
+}
+
+.links {
+  font-family: OpenSansCondensedBold, sans-serif;
+  font-size: 1.2rem;
+}
+header > .links {
+  align-items: flex-end;
+  height: 66%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.hamburgerexpanded {
+  z-index: 10;
+  position: fixed;
+  left: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: visible;
+}
+.hamburgerexpanded > .links {
+  display: flex;
+  position: fixed;
+  top: 3rem;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--purple);
+  opacity: 0.9;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.clickaway {
+  position: absolute;
+  position: fixed;
+  top: 3rem;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+}
+.hamburger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+.hamburger > i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.9rem;
+  transition: transform 0.2s ease;
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+@media screen and (min-width: 590px) {
+  /* disable hamburger buttons on desktop */
+  .hamburgerexpanded {
+    display: none;
+  }
+  .links > a {
+    margin: 0 2rem;
+  }
+}
+@media screen and (max-width: 589px) {
+  /* hide header links */
+  header > .links {
+    display: none;
+  }
+  .links > a {
+    margin: 0.5rem 0;
+    border-bottom: 2px solid white;
+  }
+  #menuopen:not(:checked) ~ .clickaway {
+    display: none;
+  }
+  #menuopen:not(:checked) ~ .links {
+    transform: translateX(100%);
+  }
+  #menuopen:not(:checked) ~ label .close {
+    transform: scale(0);
+  }
+  #menuopen:checked ~ label .open {
+    transform: scale(0);
+  }
+}
+</style><div class="hamburgerexpanded"><input id="menuopen" type="checkbox" hidden="hidden"/><label class="hamburger" for="menuopen"><i class="fas fa-bars open"></i><i class="fas fa-times close"></i></label><label class="clickaway" for="menuopen"></label><nav class="links"><a href="#event">Events</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav></div><header><a id="logolink" href="/" target="_blank" rel="noopener"><img src="Logo/SVG/White Brain.svg"/><h2>UTMIST</h2></a><nav class="links"><a href="#event">Events</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav></header><section class="splash"><h1>We’re here to clear the mist around AI</h1></section><section class="flex vertical align-center" id="event"><h1>Events</h1><div class="card-container flex"><a class="card" href="https://www.eventbrite.ca/e/utmist-paper-reading-group-1-graph-neural-net-on-computer-vision-problems-tickets-50864029682?utm_source=2018+Mailing+List&amp;utm_campaign=ae33ca5bf0-EMAIL_CAMPAIGN_2018_10_05_03_43&amp;utm_medium=email&amp;utm_term=0_e5040d3cd0-ae33ca5bf0-107591419" target="_blank" rel="noopener"><img src="assets/linghuan.jpg"/><span class="tag">Paper Reading</span><span class="date">Oct 9 6:30pm</span><h4 class="title">Graph Neural Net On Computer Vision</h4><p class="content">Led by Arie Huan Ling, Graduate Research Student at University of Toronto, Nvidia AI Research lab and Vector Institute</p></a></div><a class="action solid" href="//utmist.sa.utoronto.ca/" target="_blank" rel="noopener">VIEW ALL</a><br/></section><section class="duo" id="about"><img src="http://utmist.sa.utoronto.ca/files/2017/08/Photo-2017-07-22-3-24-53-PM-1024x683.jpg"/><div class="abouttext flex vertical"><h1>About Us</h1><p>University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization within the University of Toronto. Our mission is to let more people get to know about artificial intelligence and “clear the mist” around it! </p><a class="action solid" href="//utmist.sa.utoronto.ca/our-team/" target="_blank" rel="noopener">READ MORE</a></div></section><section class="duo" id="contact"><div class="intouchtext flex vertical"><h1>Newsletter</h1><a class="action solid" href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&amp;id=e5040d3cd0" target="_blank" rel="noopener">Subscribe</a><h1>Get in touch</h1><a class="action outline question" href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener">GOT A QUESTION?</a></div><img src="assets/betty.jpg"/></section><footer class="flex vertical justify-center"><div class="text-center">© 2018 University of Toronto Machine Intelligence Team</div><a href="#">Back to top</a><style>footer{
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    padding: 1rem;
+}
+footer>a{
+    margin: 1rem auto 0 auto;
+    text-decoration: underline;
+    font-weight: bold;
+}</style></footer></body></html>
