@@ -1,6 +1,3 @@
-- [x] Use proper font, UTMIST Logo
-- [x] Change name to "new home"
-- [x] Remove link styles
-- Make sure all links click
-- Use proper buttons etc
-- Write site generation script
+- [] project link
+- [] integrate event submission Google Form
+- [] integrate crew view
