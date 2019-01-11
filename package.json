@@ -7,11 +7,14 @@
     "start": "node watch.js",
     "build": "node compile.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "global": "^4.3.2",
+    "typescript": "^3.2.2"
+  },
   "devDependencies": {
-    "parcel": ">=1.10.0",
-    "parcel-bundler": ">=1.10.0",
-    "pug": "^2.0.3"
+    "@types/node": "^10.12.18",
+    "googleapis": "*",
+    "pug": "*"
   },
   "keywords": []
 }
