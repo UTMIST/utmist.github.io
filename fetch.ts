@@ -45,7 +45,7 @@ function authorize(creds: typeof credentials) {
   )
   return new Promise<OAuth2Client>(y => {
     // Check if we have previously stored a token.
-    const token = process.env.GOOGLE_TOKEN as string
+    const token = process.env.GOOGLE_TOKEN
     oAuth2Client.setCredentials(JSON.parse(token as any))
     y(oAuth2Client)
   })
