@@ -22,7 +22,7 @@ const EVENTS_COVER_FOLDER =
 
 // GLOBAL oath client
 let auth: OAuth2Client
-const credentials = JSON.parse(process.env.CREDENTIALS)
+const credentials = JSON.parse(process.env.GOOGLE_CREDENTIAL)
 
 // Load client secrets from a local file.
 // Authorize a client with credentials, then populate the auth object
@@ -45,7 +45,7 @@ function authorize(creds: typeof credentials) {
   )
   return new Promise<OAuth2Client>(y => {
     // Check if we have previously stored a token.
-    const token = process.env.TOKEN as string
+    const token = process.env.GOOGLE_TOKEN as string
     oAuth2Client.setCredentials(JSON.parse(token as any))
     y(oAuth2Client)
   })

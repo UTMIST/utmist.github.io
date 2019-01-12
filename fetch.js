@@ -21,7 +21,7 @@ const EVENTS_SHEET = "161OBDtJtg254iSYWk0rcDB-6wq0ixK982VCCpAx8joE";
 const EVENTS_COVER_FOLDER = "0Bz--zsExLJ5afmx1T1djTmZqc2twRHFnWExRTmp1alp1OXJ0M1VjR0R0clRweXlIYktPU1k";
 // GLOBAL oath client
 let auth;
-const credentials = JSON.parse(process.env.CREDENTIALS);
+const credentials = JSON.parse(process.env.GOOGLE_CREDENTIAL);
 // Load client secrets from a local file.
 // Authorize a client with credentials, then populate the auth object
 function ensureAuth() {
@@ -38,7 +38,7 @@ function authorize(creds) {
     const oAuth2Client = new googleapis_1.google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
     return new Promise(y => {
         // Check if we have previously stored a token.
-        const token = process.env.TOKEN;
+        const token = process.env.GOOGLE_TOKEN;
         oAuth2Client.setCredentials(JSON.parse(token));
         y(oAuth2Client);
     });
