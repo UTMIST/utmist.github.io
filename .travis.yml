@@ -1,6 +1,5 @@
 language: node_js
 node_js: node
-install: yarn add pug
 script: 
 - node fetch
 - node compile

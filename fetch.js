@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 // import readline from "readline"
 const googleapis_1 = require("googleapis");
-const credentials_json_1 = __importDefault(require("./credentials.json"));
 // If modifying these scopes, delete token.json.
 // const SCOPES = [
 //   "https://www.googleapis.com/auth/spreadsheets.readonly",
@@ -22,10 +21,11 @@ const EVENTS_SHEET = "161OBDtJtg254iSYWk0rcDB-6wq0ixK982VCCpAx8joE";
 const EVENTS_COVER_FOLDER = "0Bz--zsExLJ5afmx1T1djTmZqc2twRHFnWExRTmp1alp1OXJ0M1VjR0R0clRweXlIYktPU1k";
 // GLOBAL oath client
 let auth;
+const credentials = JSON.parse(process.env.CREDENTIALS);
 // Load client secrets from a local file.
 // Authorize a client with credentials, then populate the auth object
 function ensureAuth() {
-    return auth || authorize(credentials_json_1.default).then(a => (auth = a));
+    return auth || authorize(credentials).then(a => (auth = a));
 }
 /**
  * Create an OAuth2 client with the given credentials, and then execute the

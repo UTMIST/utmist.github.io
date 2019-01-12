@@ -1,7 +1,7 @@
 import fs from "fs"
 // import readline from "readline"
 import { google } from "googleapis"
-import credentials from "./credentials.json"
+// import credentials from "./credentials.json"
 import { OAuth2Client } from "google-auth-library"
 import { IncomingMessage } from "http"
 
@@ -22,6 +22,7 @@ const EVENTS_COVER_FOLDER =
 
 // GLOBAL oath client
 let auth: OAuth2Client
+const credentials = JSON.parse(process.env.CREDENTIALS)
 
 // Load client secrets from a local file.
 // Authorize a client with credentials, then populate the auth object
