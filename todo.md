@@ -1,3 +1,5 @@
 - [] project link
 - [] integrate event submission Google Form
+    - [x] load data from Google
+    - [ ] render into view
 - [] integrate crew view

@@ -61,3 +61,7 @@ typings/
 .next
 .cache/
 *.zip
+credentials.json
+.vscode/launch.json
+token.json
+.DS_Store

@@ -1,5 +1,4 @@
 include common/card.pug
-<!DOCTYPE html>
 html(lang="en")
     head
         include common/head.pug
@@ -14,10 +13,10 @@ html(lang="en")
         section#event.flex.vertical.align-center
             h1 Events
             div.card-container.flex
-                //- each val in [1,2,3,4,5,6,7,8]
-                //-     +card("https://via.placeholder.com/150x150","MIST101","Linear Algebra Basics","Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum.","A day ago","#")
-                +card("assets/linghuan.jpg","Paper Reading","Graph Neural Net On Computer Vision","Led by Arie Huan Ling, Graduate Research Student at University of Toronto, Nvidia AI Research lab and Vector Institute","Oct 9 6:30pm","https://drive.google.com/file/d/1f-ypidMp3BdCRVV-PTFeuJU4_VeYLllU/view")
-            a.action.solid(href="//utmist.sa.utoronto.ca/" target="_blank" rel="noopener") VIEW ALL
+                //- events are injected form compile.js
+                each ev in events
+                    +card("files/"+ev.filename,ev["What type of event is this?"],ev["Title"],ev["Description"],new Date(ev["When?"]).toLocaleString(),ev["Action Link"])
+            a.action.solid(href="//www.facebook.com/pg/UofT.MIST/events/" target="_blank" rel="noopener") VIEW ALL
             br
         section#about.duo
             img(src="http://utmist.sa.utoronto.ca/files/2017/08/Photo-2017-07-22-3-24-53-PM-1024x683.jpg")
@@ -33,9 +32,6 @@ html(lang="en")
         section#contact.duo
             div.intouchtext.flex.vertical
                 h1 Newsletter
-                //- form.flex.align-center(action="#" method="GET")
-                    input#newsletter(type="email", name="email" placeholder="EMAIL")
-                    input.action.solid(type="submit", value="SUBSCRIBE")
                 a.action.solid(href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&id=e5040d3cd0" target="_blank" rel="noopener") Subscribe
                 h1 Get in touch
                 a.action.outline.question(href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener") GOT A QUESTION?

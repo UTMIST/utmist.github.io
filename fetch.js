@@ -4,19 +4,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
-const readline_1 = __importDefault(require("readline"));
+// import readline from "readline"
 const googleapis_1 = require("googleapis");
 const credentials_json_1 = __importDefault(require("./credentials.json"));
 // If modifying these scopes, delete token.json.
-const SCOPES = [
-    "https://www.googleapis.com/auth/spreadsheets.readonly",
-    "https://www.googleapis.com/auth/drive.readonly",
-    "https://www.googleapis.com/auth/drive.metadata.readonly	"
-];
+// const SCOPES = [
+//   "https://www.googleapis.com/auth/spreadsheets.readonly",
+//   "https://www.googleapis.com/auth/drive.readonly",
+//   "https://www.googleapis.com/auth/drive.metadata.readonly	"
+// ]
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
-const TOKEN_PATH = "token.json";
+// const TOKEN_PATH = "token.json"
 const EVENTS_PATH = "./database/events.json";
 const EVENTS_SHEET = "161OBDtJtg254iSYWk0rcDB-6wq0ixK982VCCpAx8joE";
 const EVENTS_COVER_FOLDER = "0Bz--zsExLJ5afmx1T1djTmZqc2twRHFnWExRTmp1alp1OXJ0M1VjR0R0clRweXlIYktPU1k";
@@ -38,12 +38,9 @@ function authorize(creds) {
     const oAuth2Client = new googleapis_1.google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
     return new Promise(y => {
         // Check if we have previously stored a token.
-        fs_1.default.readFile(TOKEN_PATH, (err, token) => {
-            if (err)
-                return getNewToken(oAuth2Client, y);
-            oAuth2Client.setCredentials(JSON.parse(token));
-            y(oAuth2Client);
-        });
+        const token = process.env.TOKEN;
+        oAuth2Client.setCredentials(JSON.parse(token));
+        y(oAuth2Client);
     });
 }
 /**
@@ -52,32 +49,34 @@ function authorize(creds) {
  * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
  * @param {getEventsCallback} callback The callback for the authorized client.
  */
-function getNewToken(oAuth2Client, callback) {
-    const authUrl = oAuth2Client.generateAuthUrl({
-        access_type: "offline",
-        scope: SCOPES
-    });
-    console.log("Authorize this app by visiting this url:", authUrl);
-    const rl = readline_1.default.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-    rl.question("Enter the code from that page here: ", code => {
-        rl.close();
-        oAuth2Client.getToken(code, (err, token) => {
-            if (err)
-                return console.error("Error while trying to retrieve access token", err);
-            oAuth2Client.setCredentials(token);
-            // Store the token to disk for later program executions
-            fs_1.default.writeFile(TOKEN_PATH, JSON.stringify(token), err => {
-                if (err)
-                    console.error(err);
-                console.log("Token stored to", TOKEN_PATH);
-            });
-            callback(oAuth2Client);
-        });
-    });
-}
+// function getNewToken(
+//   oAuth2Client: OAuth2Client,
+//   callback: (o: OAuth2Client) => void
+// ) {
+//   const authUrl = oAuth2Client.generateAuthUrl({
+//     access_type: "offline",
+//     scope: SCOPES
+//   })
+//   console.log("Authorize this app by visiting this url:", authUrl)
+//   const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout
+//   })
+//   rl.question("Enter the code from that page here: ", code => {
+//     rl.close()
+//     oAuth2Client.getToken(code, (err, token) => {
+//       if (err)
+//         return console.error("Error while trying to retrieve access token", err)
+//       oAuth2Client.setCredentials(token)
+//       // Store the token to disk for later program executions
+//       fs.writeFile(TOKEN_PATH, JSON.stringify(token), err => {
+//         if (err) console.error(err)
+//         console.log("Token stored to", TOKEN_PATH)
+//       })
+//       callback(oAuth2Client)
+//     })
+//   })
+// }
 /**
  * Prints the names and majors of students in a sample spreadsheet:
  * @see https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit

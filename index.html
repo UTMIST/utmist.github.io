@@ -1,4 +1,12 @@
-<!DOCTYPE html><html lang="en"><head><!DOCTYPE html><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/><style>@font-face {
+
+<html lang="en">
+  <head><!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+      @font-face {
   font-family: OpenSansCondensedLight;
   src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf);
 }
@@ -29,7 +37,7 @@ body {
   --darkshadow: 0 2px 6px #333333;
   --lightshadow: 0 2px 6px white;
 }
-/* overwrite browser defaults for inconsistencies */
+      /* overwrite browser defaults for inconsistencies */
 a {
   text-decoration: none;
   color: inherit;
@@ -56,7 +64,7 @@ input {
   -webkit-appearance: none;
   border-radius: 0;
 }
-h1,
+      h1,
 h2 {
   font-family: OpenSansCondensedBold, sans-serif;
 }
@@ -160,7 +168,11 @@ input[type="email"] {
     grid-template-areas: "top top" "bottom bottom";
   }
 }
-</style><title>UTMIST</title><style>.card {
+
+    </style>
+    <title>UTMIST</title>
+    <style>
+      .card {
   display: grid;
   /* no margin for img */
   grid-template-areas:
@@ -180,9 +192,12 @@ input[type="email"] {
   margin: 0;
 }
 
-.card > img {
+.card > .img {
   grid-area: img;
-  width: 100%;
+  height: 13rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .card > .tag {
@@ -204,7 +219,7 @@ input[type="email"] {
   grid-area: content;
   opacity: 0.7;
 }
-.splash {
+      .splash {
   background-image: url("http://utmist.sa.utoronto.ca/files/2017/10/20171005-DSC_0003.jpg");
   height: calc(100vh - 3rem);
 }
@@ -354,7 +369,11 @@ p {
     margin: 2rem 0 0 0;
   }
 }
-</style></head><body><style>header {
+
+    </style>
+  </head>
+  <body>
+    <style>header {
   background-color: var(--primary);
   display: flex;
   align-items: center;
@@ -481,7 +500,47 @@ header > .links {
     transform: scale(0);
   }
 }
-</style><div class="hamburgerexpanded"><input id="menuopen" type="checkbox" hidden="hidden"/><label class="hamburger" for="menuopen"><i class="fas fa-bars open"></i><i class="fas fa-times close"></i></label><label class="clickaway" for="menuopen"></label><nav class="links"><a href="#event">Events</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav></div><header><a id="logolink" href="/" target="_blank" rel="noopener"><img src="Logo/SVG/White Brain.svg"/><h2>UTMIST</h2></a><nav class="links"><a href="#event">Events</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav></header><section class="splash"><h1>We’re here to clear the mist around AI</h1></section><section class="flex vertical align-center" id="event"><h1>Events</h1><div class="card-container flex"><a class="card" href="https://drive.google.com/file/d/1f-ypidMp3BdCRVV-PTFeuJU4_VeYLllU/view" target="_blank" rel="noopener"><img src="assets/linghuan.jpg"/><span class="tag">Paper Reading</span><span class="date">Oct 9 6:30pm</span><h4 class="title">Graph Neural Net On Computer Vision</h4><p class="content">Led by Arie Huan Ling, Graduate Research Student at University of Toronto, Nvidia AI Research lab and Vector Institute</p></a></div><a class="action solid" href="//utmist.sa.utoronto.ca/" target="_blank" rel="noopener">VIEW ALL</a><br/></section><section class="duo" id="about"><img src="http://utmist.sa.utoronto.ca/files/2017/08/Photo-2017-07-22-3-24-53-PM-1024x683.jpg"/><div class="abouttext flex vertical"><h1>About Us</h1><p>University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization within the University of Toronto. Our mission is to let more people get to know about artificial intelligence and “clear the mist” around it! </p><a class="action solid" href="//utmist.sa.utoronto.ca/our-team/" target="_blank" rel="noopener">READ MORE</a></div></section><section class="duo" id="contact"><div class="intouchtext flex vertical"><h1>Newsletter</h1><a class="action solid" href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&amp;id=e5040d3cd0" target="_blank" rel="noopener">Subscribe</a><h1>Get in touch</h1><a class="action outline question" href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener">GOT A QUESTION?</a></div><img src="assets/betty.jpg"/></section><footer class="flex vertical justify-center"><div class="text-center">© 2019 University of Toronto Machine Intelligence Team</div><a href="#">Back to top</a><style>footer{
+
+    </style>
+    <div class="hamburgerexpanded">
+      <input id="menuopen" type="checkbox" hidden>
+      <label class="hamburger" for="menuopen"><i class="fas fa-bars open"></i><i class="fas fa-times close"></i></label>
+      <label class="clickaway" for="menuopen"></label>
+          <nav class="links"><a href="#event">Events</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav>
+    </div>
+    <header><a id="logolink" href="/" target="_blank" rel="noopener"><img src="Logo/SVG/White Brain.svg">
+        <h2>UTMIST</h2></a>
+          <nav class="links"><a href="#event">Events</a><a href="#about">About Us</a><a href="#contact">Contact</a></nav>
+    </header>
+    <section class="splash">
+      <h1>We’re here to clear the mist around AI</h1>
+    </section>
+    <section class="flex vertical align-center" id="event">
+      <h1>Events</h1>
+      <div class="card-container flex"><a class="card" href="https://drive.google.com/file/d/1f-ypidMp3BdCRVV-PTFeuJU4_VeYLllU/view" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;files/linghuan - UTMIST.jpg&quot;)"></div><span class="tag">Workshop</span><span class="date">1/16/2019, 12:00:00 AM</span>
+          <h4 class="title">Graph Neural Net On Computer Vision</h4>
+          <p class="content">Led by Arie Huan Ling, Graduate Research Student at University of Toronto, Nvidia AI Research lab and Vector Institute</p></a><a class="card" href="https://utmist.github.io/" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;files/betty - UTMIST.jpg&quot;)"></div><span class="tag">MIST101</span><span class="date">1/24/2019, 12:30:00 PM</span>
+          <h4 class="title">MIST101 - 1</h4>
+          <p class="content">Introduction</p></a>
+      </div><a class="action solid" href="//www.facebook.com/pg/UofT.MIST/events/" target="_blank" rel="noopener">VIEW ALL</a><br>
+    </section>
+    <section class="duo" id="about"><img src="http://utmist.sa.utoronto.ca/files/2017/08/Photo-2017-07-22-3-24-53-PM-1024x683.jpg">
+      <div class="abouttext flex vertical">
+        <h1>About Us</h1>
+        <p>University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization within the University of Toronto. Our mission is to let more people get to know about artificial intelligence and “clear the mist” around it! </p><a class="action solid" href="//utmist.sa.utoronto.ca/our-team/" target="_blank" rel="noopener">READ MORE</a>
+      </div>
+    </section>
+    <section class="duo" id="contact">
+      <div class="intouchtext flex vertical">
+        <h1>Newsletter</h1><a class="action solid" href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&amp;id=e5040d3cd0" target="_blank" rel="noopener">Subscribe</a>
+        <h1>Get in touch</h1><a class="action outline question" href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener">GOT A QUESTION?</a>
+      </div><img src="assets/betty.jpg">
+    </section>
+    <footer class="flex vertical justify-center">
+      <div class="text-center">© 2019 University of Toronto Machine Intelligence Team</div><a href="#">Back to top</a>
+      <style>footer{
     background-color: rgba(0,0,0,0.7);
     color: white;
     padding: 1rem;
@@ -490,4 +549,8 @@ footer>a{
     margin: 1rem auto 0 auto;
     text-decoration: underline;
     font-weight: bold;
-}</style></footer></body></html>
+}
+      </style>
+    </footer>
+  </body>
+</html>
