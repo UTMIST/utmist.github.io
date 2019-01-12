@@ -8,12 +8,13 @@
     "build": "node compile.js"
   },
   "dependencies": {
+    "moment": "^2.23.0",
     "pug": "*"
   },
   "devDependencies": {
-    "typescript": "^3.2.2",
     "@types/node": "^10.12.18",
-    "googleapis": "*"
+    "googleapis": "*",
+    "typescript": "^3.2.2"
   },
   "keywords": []
 }

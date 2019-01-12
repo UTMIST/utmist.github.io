@@ -15,7 +15,7 @@ html(lang="en")
             div.card-container.flex
                 //- events are injected form compile.js
                 each ev in events
-                    +card("files/"+ev.filename,ev["What type of event is this?"],ev["Title"],ev["Description"],new Date(ev["When?"]).toLocaleString(),ev["Action Link"])
+                    +card("files/"+ev.filename,ev["What type of event is this?"],ev["Title"],ev["Description"],ev["When?"],ev["Action Link"])
             a.action.solid(href="//www.facebook.com/pg/UofT.MIST/events/" target="_blank" rel="noopener") VIEW ALL
             br
         section#about.duo
@@ -37,3 +37,5 @@ html(lang="en")
                 a.action.outline.question(href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener") GOT A QUESTION?
             img(src="assets/betty.jpg")
         include common/footer.pug
+        script(src="https://cdn.jsdelivr.net/npm/moment@2.23.0/moment.min.js" defer)
+        script(src="common/date.js" defer)

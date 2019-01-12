@@ -14,5 +14,6 @@ function compile() {
       fs.writeFileSync(pg.replace(".pug", ".html"), html)
     })
 }
+
 compile()
 module.exports = compile
