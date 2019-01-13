@@ -24,6 +24,20 @@ const EXECS_SHEET = "1p1EhfK6oLeHLhPAiQnhMt-h1Bovf4j-Eyg5v8ZP4wME";
 // GLOBAL oath client
 let auth;
 const credentials = JSON.parse(process.env.GOOGLE_CREDENTIAL);
+async function SequentialPromise(promises) {
+    const results = [];
+    for (let p of promises) {
+        try {
+            results.push(await p);
+            // run slowly so as not to exceed google rate limit
+            await new Promise(y => setTimeout(y, 100));
+        }
+        catch (e) {
+            console.error(e);
+        }
+    }
+    return results;
+}
 // Load client secrets from a local file.
 // Authorize a client with credentials, then populate the auth object
 function ensureAuth() {
@@ -79,7 +93,7 @@ function authorize(creds) {
 //     })
 //   })
 // }
-async function sheetToJson(spreadsheetId, lastCol, sheets = googleapis_1.google.sheets({ version: "v4", auth })) {
+async function sheetToJson(spreadsheetId, lastCol, sheets) {
     await ensureAuth();
     const fetchTask = sheets.spreadsheets
         .get({ spreadsheetId, includeGridData: true })
@@ -101,18 +115,18 @@ async function sheetToJson(spreadsheetId, lastCol, sheets = googleapis_1.google.
     }, err => (console.error("The API returned an error: " + err), []));
     return fetchTask;
 }
-async function grabAllFiles(folderid, drive = googleapis_1.google.drive({ version: "v3", auth })) {
+async function grabAllFiles(folderid, drive) {
     const fileMetas = await drive.files
         .list({ q: `'${folderid}' in parents` })
         .then(res => {
         const files = res.data.files;
         return files.map(({ id, name, mimeType }) => ({ id, name, mimeType }));
     });
-    return Promise.all(fileMetas.map(f => {
+    return SequentialPromise(fileMetas.map(f => {
         return grabAFile(f.id, f.name, drive);
     }));
 }
-function grabMeta(id, drive = googleapis_1.google.drive({ version: "v3", auth })) {
+function grabMeta(id, drive) {
     return (drive.files
         // resposeType is important, otherwise you get text junk
         .get({ fileId: id })
@@ -120,7 +134,7 @@ function grabMeta(id, drive = googleapis_1.google.drive({ version: "v3", auth })
         return res.data;
     }));
 }
-function grabAFile(id, name, drive = googleapis_1.google.drive({ version: "v3", auth })) {
+function grabAFile(id, name, drive) {
     return (drive.files
         // resposeType is important, otherwise you get text junk
         .get({ fileId: id, alt: "media" }, { responseType: "stream" })
@@ -140,7 +154,8 @@ async function main() {
     await ensureAuth();
     const drive = googleapis_1.google.drive({ version: "v3", auth });
     const sheet = googleapis_1.google.sheets({ version: "v4", auth });
-    const [eventsJSON, picIDName] = await Promise.all([
+    // import events
+    const [eventsJSON, picIDName] = await SequentialPromise([
         sheetToJson(EVENTS_SHEET, "G", sheet),
         grabAllFiles(EVENTS_COVER_FOLDER, drive)
     ]);
@@ -156,18 +171,20 @@ async function main() {
     });
     fs_1.default.writeFileSync(EVENTS_PATH, JSON.stringify(eventsJSON, null, 2));
     console.log(eventsJSON.length + " events imported");
+    // import executive profiles
     const execsJSON = await sheetToJson(EXECS_SHEET, "O", sheet);
-    await Promise.all(execsJSON.map(async (ex) => {
-        const prefname = ex["Preferred Name"];
+    for (let ex of execsJSON) {
+        const prefname = ex["Preferred Name"] || ex["First Name"];
         if (ex["Profile Link"])
-            return Promise.resolve();
+            continue;
         else if (ex["Profile Picture"]) {
             const maybeid = ExtractID(ex["Profile Picture"]);
             // missing profile pic is OK for now
             if (!maybeid) {
                 console.error("Missing profile photo " + prefname);
-                return;
+                continue;
             }
+            console.log("grabbing exec", prefname);
             const meta = await grabMeta(maybeid, drive);
             const pic = await grabAFile(maybeid, meta.name, drive);
             if (pic)
@@ -177,9 +194,8 @@ async function main() {
         }
         else {
             console.error("Missing profile photo " + prefname);
-            return Promise.resolve();
         }
-    }));
+    }
     fs_1.default.writeFileSync(EXECS_PATH, JSON.stringify(execsJSON, null, 2));
     console.log(execsJSON.length + " execs imported");
 }

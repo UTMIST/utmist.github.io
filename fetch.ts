@@ -1,6 +1,6 @@
 import fs from "fs"
 // import readline from "readline"
-import { google, drive_v3 } from "googleapis"
+import { google, drive_v3, sheets_v4 } from "googleapis"
 // import credentials from "./credentials.json"
 import { OAuth2Client } from "google-auth-library"
 import { IncomingMessage } from "http"
@@ -25,6 +25,20 @@ const EXECS_SHEET = "1p1EhfK6oLeHLhPAiQnhMt-h1Bovf4j-Eyg5v8ZP4wME"
 // GLOBAL oath client
 let auth: OAuth2Client
 const credentials = JSON.parse(process.env.GOOGLE_CREDENTIAL)
+
+async function SequentialPromise<T>(promises: Promise<T>[]) {
+  const results = [] as T[]
+  for (let p of promises) {
+    try {
+      results.push(await p)
+      // run slowly so as not to exceed google rate limit
+      await new Promise(y => setTimeout(y, 100))
+    } catch (e) {
+      console.error(e)
+    }
+  }
+  return results
+}
 
 // Load client secrets from a local file.
 // Authorize a client with credentials, then populate the auth object
@@ -91,7 +105,7 @@ function authorize(creds: typeof credentials) {
 async function sheetToJson<T>(
   spreadsheetId: string,
   lastCol: string,
-  sheets = google.sheets({ version: "v4", auth })
+  sheets: sheets_v4.Sheets
 ) {
   await ensureAuth()
   const fetchTask = sheets.spreadsheets
@@ -120,17 +134,14 @@ async function sheetToJson<T>(
   return fetchTask
 }
 
-async function grabAllFiles(
-  folderid: string,
-  drive = google.drive({ version: "v3", auth })
-) {
+async function grabAllFiles(folderid: string, drive: drive_v3.Drive) {
   const fileMetas = await drive.files
     .list({ q: `'${folderid}' in parents` })
     .then(res => {
       const files = res.data.files
       return files.map(({ id, name, mimeType }) => ({ id, name, mimeType }))
     })
-  return Promise.all(
+  return SequentialPromise(
     fileMetas.map(f => {
       return grabAFile(f.id, f.name, drive)
     })
@@ -139,7 +150,7 @@ async function grabAllFiles(
 
 function grabMeta(
   id: string,
-  drive = google.drive({ version: "v3", auth })
+  drive: drive_v3.Drive
 ): Promise<{ id?: string; name?: string; mimeType?: string }> {
   return (
     drive.files
@@ -151,11 +162,7 @@ function grabMeta(
   )
 }
 
-function grabAFile(
-  id: string,
-  name: string,
-  drive = google.drive({ version: "v3", auth })
-) {
+function grabAFile(id: string, name: string, drive: drive_v3.Drive) {
   return (
     drive.files
       // resposeType is important, otherwise you get text junk
@@ -181,10 +188,13 @@ async function main() {
   await ensureAuth()
   const drive = google.drive({ version: "v3", auth })
   const sheet = google.sheets({ version: "v4", auth })
-  const [eventsJSON, picIDName] = await Promise.all([
+
+  // import events
+  const [eventsJSON, picIDName] = await SequentialPromise([
     sheetToJson<Dict>(EVENTS_SHEET, "G", sheet),
     grabAllFiles(EVENTS_COVER_FOLDER, drive)
   ])
+
   eventsJSON.forEach(event => {
     const maybeid = ExtractID(event["Cover Photo"])
     if (!maybeid) throw new Error("Missing Cover photo " + event["Title"])
@@ -194,28 +204,28 @@ async function main() {
   })
   fs.writeFileSync(EVENTS_PATH, JSON.stringify(eventsJSON, null, 2))
   console.log(eventsJSON.length + " events imported")
+
+  // import executive profiles
   const execsJSON = await sheetToJson<Dict>(EXECS_SHEET, "O", sheet)
-  await Promise.all(
-    execsJSON.map(async ex => {
-      const prefname = ex["Preferred Name"]
-      if (ex["Profile Link"]) return Promise.resolve()
-      else if (ex["Profile Picture"]) {
-        const maybeid = ExtractID(ex["Profile Picture"])
-        // missing profile pic is OK for now
-        if (!maybeid) {
-          console.error("Missing profile photo " + prefname)
-          return
-        }
-        const meta = await grabMeta(maybeid, drive)
-        const pic = await grabAFile(maybeid, meta.name, drive)
-        if (pic) ex["filename"] = pic.name
-        else throw new Error("Picture not found " + prefname)
-      } else {
+  for (let ex of execsJSON) {
+    const prefname = ex["Preferred Name"] || ex["First Name"]
+    if (ex["Profile Link"]) continue
+    else if (ex["Profile Picture"]) {
+      const maybeid = ExtractID(ex["Profile Picture"])
+      // missing profile pic is OK for now
+      if (!maybeid) {
         console.error("Missing profile photo " + prefname)
-        return Promise.resolve()
+        continue
       }
-    })
-  )
+      console.log("grabbing exec", prefname)
+      const meta = await grabMeta(maybeid, drive)
+      const pic = await grabAFile(maybeid, meta.name, drive)
+      if (pic) ex["filename"] = pic.name
+      else throw new Error("Picture not found " + prefname)
+    } else {
+      console.error("Missing profile photo " + prefname)
+    }
+  }
   fs.writeFileSync(EXECS_PATH, JSON.stringify(execsJSON, null, 2))
   console.log(execsJSON.length + " execs imported")
 }
