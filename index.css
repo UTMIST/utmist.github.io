@@ -1,25 +1,3 @@
-.splash {
-  background-image: url("http://utmist.sa.utoronto.ca/files/2017/10/20171005-DSC_0003.jpg");
-  height: calc(100vh - 3rem);
-}
-/* popping headline */
-.splash > h1 {
-  position: absolute;
-  right: 5%;
-  top: 30%;
-  max-width: 32rem;
-  width: 40%;
-  word-spacing: 1rem;
-  letter-spacing: 0.1rem;
-  text-align: left;
-  color: white;
-  text-shadow: var(--darkshadow);
-}
-
-section:nth-child(odd) {
-  /* background: var(--grey); */
-}
-
 .card-container {
   max-width: 72rem;
   width: 100%;
@@ -74,10 +52,6 @@ section:nth-child(odd) {
   object-position: center;
 }
 
-p {
-  line-height: 1.6rem;
-}
-
 /* non-phone */
 @media screen and (min-width: 590px) {
   h1 {
@@ -120,12 +94,7 @@ p {
     font-size: 2rem;
     text-align: center;
   }
-  .splash > h1 {
-    font-size: 2.5rem;
-    top: 15%;
-    word-spacing: 0;
-    width: 50%;
-  }
+
   .duo > div > h1 {
     background-color: white;
     border-radius: 1rem 1rem 0 0;
