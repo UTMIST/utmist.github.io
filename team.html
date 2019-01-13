@@ -1,0 +1,541 @@
+
+<html lang="en">
+  <head><!DOCTYPE html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <style>
+      @font-face {
+  font-family: OpenSansCondensedLight;
+  src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf);
+}
+@font-face {
+  font-family: OpenSansCondensedBold;
+  src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: Instruction;
+  src: url(Fonts/instruction/Instruction.otf);
+}
+@font-face {
+  font-family: Lato;
+  src: url(Fonts/Lato/Lato-Regular.ttf);
+}
+
+body {
+  --primary: #0033a0;
+  --darkest: #001f61;
+  --darker: #002981;
+  --lighter: #0044d4;
+  --lightest: #0d59fb;
+  --purple: #43219a;
+  --green: #00928c;
+  --yellow: #f0c600;
+  --orange: #f06b00;
+  --grey: #f6f6f6;
+  --darkshadow: 0 2px 6px #333333;
+  --lightshadow: 0 2px 6px white;
+}
+      /* overwrite browser defaults for inconsistencies */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+* {
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Lato, sans-serif;
+}
+input {
+  min-width: 0;
+}
+button,
+input[type="submit"],
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+      h1,
+h2 {
+  font-family: OpenSansCondensedBold, sans-serif;
+}
+
+hr{
+  margin: 0 30vw;
+}
+
+.splash {
+  position: relative;
+  width: 100%;
+  max-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.splash {
+  height: calc(100vh - 3rem);
+}
+
+/* popping headline */
+.splash > h1 {
+  position: absolute;
+  right: 5%;
+  top: 30%;
+  max-width: 32rem;
+  width: 40%;
+  word-spacing: 1rem;
+  letter-spacing: 0.1rem;
+  text-align: left;
+  color: white;
+  text-shadow: var(--darkshadow);
+}
+
+
+.flex {
+  display: flex;
+}
+
+.flex.vertical {
+  flex-direction: column;
+}
+
+.flex.justify-center {
+  justify-content: center;
+}
+
+.flex.align-center {
+  align-items: center;
+}
+
+.flex.wrap {
+  flex-wrap: wrap;
+}
+.halfwidth {
+  width: 50%;
+}
+.fullwidth {
+  width: 100%;
+}
+.fullscreen {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.text-center {
+  text-align: center;
+}
+.margin-auto {
+  margin: auto;
+}
+.default-margin {
+  margin: 1rem;
+}
+.action {
+  text-transform: uppercase;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-family: Instruction, sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.action.solid,
+.action.outline:hover:not(:active) {
+  background-color: var(--primary);
+  color: white;
+  outline: none;
+}
+.action.outline,
+.action.solid:hover:not(:active) {
+  outline: 4px solid var(--primary);
+  color: var(--primary);
+  background-color: transparent;
+}
+
+input[type="text"],
+input[type="email"] {
+  outline: 1px solid var(--primary);
+  border: 0;
+}
+
+/* left-right when screen is large enough, top-down otherwise */
+.duo {
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  align-items: stretch;
+}
+/* non-phone */
+@media screen and (min-width: 590px) {
+  .duo {
+    grid-template-areas: "left right" "left right";
+  }
+}
+
+/* phone */
+@media screen and (max-width: 589px) {
+  .duo {
+    grid-template-areas: "top top" "bottom bottom";
+  }
+  .splash > h1 {
+    font-size: 2.5rem;
+    top: 15%;
+    word-spacing: 0;
+    width: 50%;
+  }
+}
+
+p {
+  line-height: 1.6rem;
+}
+    </style>
+    <title>Team UTMIST</title>
+    <style>#about p {
+  white-space: pre-wrap;
+}
+#about,
+#execs{
+  max-width: 1280px;
+  margin: auto;
+}
+
+.exec {
+  width: 10rem;
+  overflow-x: hidden;
+  margin: 0.7rem;
+}
+
+.exec .pic {
+  height: 10rem;
+  width: 10rem;
+  background-size: contain;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.exec .pic.alphabet {
+  font-size: 4rem;
+  line-height: 10rem;
+  letter-spacing: 0.3rem;
+  color: white;
+  font-weight: lighter;
+}
+
+@media screen and (max-width: 589px) {
+  .exec {
+    width: 9rem;
+    margin: 0.5rem;
+  }
+  .exec .pic {
+    height: 9rem;
+    width: 9rem;
+  }
+  .exec .pic.alphabet {
+    font-size: 3.5rem;
+    line-height: 9rem;
+  }
+}
+
+.exec:nth-child(odd) .pic.alphabet {
+  background-color: var(--yellow);
+}
+
+.exec:nth-child(even) .pic.alphabet {
+  background-color: var(--green);
+}
+
+.discipline {
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+.position {
+  font-weight: lighter;
+}
+
+    </style>
+  </head>
+  <body>
+    <style>header {
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  overflow-x: auto;
+  height: 3rem;
+}
+header + * {
+  margin-top: 3rem;
+}
+header,
+.hamburgerexpanded {
+  color: white;
+}
+#logolink {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 9rem;
+  margin: 0 5%;
+}
+#logolink > img {
+  height: 2.5rem;
+}
+#logolink > h2 {
+  font-family: Instruction, sans-serif;
+  height: 2rem;
+  margin: 0 0.4rem;
+}
+
+.links {
+  font-family: OpenSansCondensedBold, sans-serif;
+  font-size: 1.2rem;
+}
+header > .links {
+  align-items: flex-end;
+  height: 66%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+.hamburgerexpanded {
+  z-index: 10;
+  position: fixed;
+  left: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: visible;
+}
+.hamburgerexpanded > .links {
+  display: flex;
+  position: fixed;
+  top: 3rem;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--purple);
+  opacity: 0.9;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.clickaway {
+  position: absolute;
+  position: fixed;
+  top: 3rem;
+  right: 50%;
+  bottom: 0;
+  left: 0;
+}
+.hamburger {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+.hamburger > i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.9rem;
+  transition: transform 0.2s ease;
+  font-size: 1.2rem;
+  height: 3rem;
+  width: 3rem;
+}
+
+@media screen and (min-width: 590px) {
+  /* disable hamburger buttons on desktop */
+  .hamburgerexpanded {
+    display: none;
+  }
+  .links > a {
+    margin: 0 2rem;
+  }
+}
+@media screen and (max-width: 589px) {
+  /* hide header links */
+  header > .links {
+    display: none;
+  }
+  .links > a {
+    margin: 0.5rem 0;
+    border-bottom: 2px solid white;
+  }
+  #menuopen:not(:checked) ~ .clickaway {
+    display: none;
+  }
+  #menuopen:not(:checked) ~ .links {
+    transform: translateX(100%);
+  }
+  #menuopen:not(:checked) ~ label .close {
+    transform: scale(0);
+  }
+  #menuopen:checked ~ label .open {
+    transform: scale(0);
+  }
+}
+
+    </style>
+    <div class="hamburgerexpanded">
+      <input id="menuopen" type="checkbox" hidden>
+      <label class="hamburger" for="menuopen"><i class="fas fa-bars open"></i><i class="fas fa-times close"></i></label>
+      <label class="clickaway" for="menuopen"></label>
+          <nav class="links"><a href="/index.html#event">Events</a><a href="/index.html#about">About Us</a><a href="/index.html#contact">Contact</a></nav>
+    </div>
+    <header><a id="logolink" href="/"><img src="Logo/SVG/White Brain.svg">
+        <h2>UTMIST</h2></a>
+          <nav class="links"><a href="/index.html#event">Events</a><a href="/index.html#about">About Us</a><a href="/index.html#contact">Contact</a></nav>
+    </header>
+    <section class="splash" style="background-image:url('assets/achievement-agreement-arms-1068523.jpg')">
+      <h1></h1>
+    </section>
+    <h1 class="text-center">About Us</h1>
+    <section class="default-margin" id="about">
+      <p>The University of Toronto, as one of the top education institutes in the world, leads the way in the field of artificial intelligence, and it has Geoffrey Hinton’s Machine Learning Group – the first of the three world-leading forces in the field of deep learning. However, undergraduate students seldom have the opportunity of getting in touch with the scholars from the Machine Learning Group, or getting exposure to leading technology in machine learning. This has created a disconnection between the undergraduate students and top scholars in machine learning. UTMIST aims to clear the mist by demystifying artificial intelligence technology, which is the most trendy technology nowadays. As a student organization focused on machine learning research, UTMIST is to establish a close connection between the undergraduate students and top academic resources at U of T.
+University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization within the University of Toronto. Our mission is to let more people get to know about artificial intelligence, “Clear the mist”!
+      </p>
+    </section>
+    <hr>
+    <h1 class="text-center">Meet The Team</h1>
+    <section class="default-margin flex justify-center text-center wrap" id="execs"><span class="exec">
+        <div class="pic alphabet">WH</div>
+        <p>Willy Hu</p>
+        <div class="discipline">EngSci1T9</div>
+        <div class="position">Communications Associate</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1H4z3Vdyyqin2jZqvHj-BoJJCn7WKAGl0_litos.JPG')"></div>
+        <p>Litos Li</p>
+        <div class="discipline">EngSci1T9</div>
+        <div class="position">VP External</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1BvoRa5Rmf6OHq0yozGCoNHHnaKTXqDyy_justin.jpg')"></div>
+        <p>Justin Yuan</p>
+        <div class="discipline">EngSci1T9</div>
+        <div class="position">VP Academics</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1rD-bATEWZT6XRYk5fF1YsuhYRJ8ik4Zq_charlie.jpg')"></div>
+        <p>Charlie Chen</p>
+        <div class="discipline">EngSci2T1</div>
+        <div class="position">VP Communications</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/13in7B8m5dPNkxq6MEKal_qp-xT6vQkky_sheldon.png')"></div>
+        <p>Sheldon Huang</p>
+        <div class="discipline">ComSci1T9</div>
+        <div class="position">Scientific Advisor</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/17_gYdS30P6fn4rGfCz_DTgcEKHFSCY0b_colin.jpg')"></div>
+        <p>Colin Li</p>
+        <div class="discipline">EngSci1T9</div>
+        <div class="position">President</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1WBP8dHwUVSrNiXV106jib2SUGfVx-t4t_Robert.JPG')"></div>
+        <p>Jianing Li</p>
+        <div class="discipline">EngSci2T0</div>
+        <div class="position">VP Logistics</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1xBaUgEk2IhXR1-MGPq7aJYwyC0TF8fCv_harvey.jpg')"></div>
+        <p>Harvey Fang</p>
+        <div class="discipline">ComSci1T9</div>
+        <div class="position">VP Marketing</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1tEY9qJLzG_8p1-aXtVuk5u0E2tNr1TnL_jacob.jpg')"></div>
+        <p>Jacob Kelly</p>
+        <div class="discipline">ComSci2T1</div>
+        <div class="position">Project Director</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1UU-ZVJ2ZmPDIfoQ1bHJNO15UNzJs-lFS_lisa.png')"></div>
+        <p>Lisa Li</p>
+        <div class="discipline">EngSci2T1</div>
+        <div class="position">Graphics Designer</div></span><span class="exec">
+        <div class="pic alphabet">XY</div>
+        <p>Xi Yan</p>
+        <div class="discipline">ComSci1T9</div>
+        <div class="position">Photographer</div></span><span class="exec">
+        <div class="pic alphabet">RL</div>
+        <p>Ruiyao Li</p>
+        <div class="discipline"></div>
+        <div class="position">Marketing Associate</div></span><span class="exec">
+        <div class="pic alphabet">ZW</div>
+        <p>Zitian Wu</p>
+        <div class="discipline">MIE2T0</div>
+        <div class="position">External Associate </div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1wxSdxKuW6UjvqF1kgvcbKYsZsIFGBsPB_linkedin square - UTMIST.jpg')"></div>
+        <p>Rain Shen</p>
+        <div class="discipline">Engsci1T9</div>
+        <div class="position">Online Assiciate</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1VJqKwotHbcCVUE4Ap4x5gKydvjgMg90N_jane.jpg')"></div>
+        <p>Jane Illarionova</p>
+        <div class="discipline">ECE2T0</div>
+        <div class="position">VP Finance</div></span><span class="exec">
+        <div class="pic alphabet">SW</div>
+        <p>Shuyi  Wang</p>
+        <div class="discipline">ECE 2T2</div>
+        <div class="position">External Associate </div></span><span class="exec">
+        <div class="pic alphabet">LZ</div>
+        <p>Lily Zhang</p>
+        <div class="discipline">ComSci2T0</div>
+        <div class="position">External Associate </div></span><span class="exec">
+        <div class="pic alphabet">DR</div>
+        <p>Devansh Ranade</p>
+        <div class="discipline">EngSci 2T1</div>
+        <div class="position">Project Associate</div></span><span class="exec">
+        <div class="pic alphabet">CD</div>
+        <p>Claire Dalkie</p>
+        <div class="discipline">EngSci 2T1</div>
+        <div class="position">External Associate </div></span><span class="exec">
+        <div class="pic alphabet">AW</div>
+        <p>Alina Wei</p>
+        <div class="discipline">ECE1T9</div>
+        <div class="position">Event Director</div></span><span class="exec">
+        <div class="pic alphabet">SZ</div>
+        <p>Sophie Zhang</p>
+        <div class="discipline">ECE2T1</div>
+        <div class="position">External Associate</div></span><span class="exec">
+        <div class="pic alphabet">SZ</div>
+        <p>Steven Zhao</p>
+        <div class="discipline">ECE2T1</div>
+        <div class="position">Project Associate</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1LiALy0tzvGnlumKsQI-ank3m4SfS2kZN_wudie.jpg')"></div>
+        <p>Raina Wang</p>
+        <div class="discipline">ComSci2T1</div>
+        <div class="position">External Associate </div></span><span class="exec">
+        <div class="pic alphabet">TT</div>
+        <p>Teng Tu</p>
+        <div class="discipline">ComSci+Psy 2T1</div>
+        <div class="position">External Associate</div></span><span class="exec">
+        <div class="pic alphabet">RF</div>
+        <p>Rex Fang</p>
+        <div class="discipline"></div>
+        <div class="position">External Associate </div></span><span class="exec">
+        <div class="pic alphabet">SL</div>
+        <p>Steven Liu</p>
+        <div class="discipline">EngSci1T9</div>
+        <div class="position"></div></span><span class="exec">
+        <div class="pic alphabet">MCC</div>
+        <p>Matthieu Chan Chee</p>
+        <div class="discipline">ComSci2T1</div>
+        <div class="position">Project Associate</div></span><span class="exec">
+        <div class="pic alphabet">SZ</div>
+        <p>Siyan Zhao</p>
+        <div class="discipline">EngSci2T1</div>
+        <div class="position">Marketing Associate</div></span><span class="exec">
+        <div class="pic alphabet">WX</div>
+        <p>Winnie Xu</p>
+        <div class="discipline">ComSci2T1</div>
+        <div class="position">Project Associate</div></span>
+    </section>
+  </body>
+</html>

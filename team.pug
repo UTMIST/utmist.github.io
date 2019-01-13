@@ -1,0 +1,28 @@
+include common/splash
+mixin exec(name, discipline, position, photo)
+    span.exec
+        if photo
+            .pic(style="background-image:url('"+photo+"')")
+        else
+            .pic.alphabet= name.split(' ').map(s=>(s[0]||"").toUpperCase()).join('')
+        p= name
+        .discipline= discipline
+        .position= position
+html(lang="en")
+    head
+        include common/head.pug
+        title Team UTMIST
+        style
+            include team.css
+    body
+        include common/topbar.pug
+        +splash("assets/achievement-agreement-arms-1068523.jpg")
+        h1.text-center About Us
+        section#about.default-margin
+            p
+                include assets/mission.txt
+        hr
+        h1.text-center Meet The Team
+        section#execs.default-margin.flex.justify-center.text-center.wrap
+            each ex in execs
+                +exec(`${ex["Preferred Name"]||ex["First Name"]} ${ex["Last Name"]}`, ex["Discipline"], ex["Position"], ex["Profile Link"]||ex["filename"])

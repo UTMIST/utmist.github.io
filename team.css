@@ -1,0 +1,62 @@
+#about p {
+  white-space: pre-wrap;
+}
+#about,
+#execs{
+  max-width: 1280px;
+  margin: auto;
+}
+
+.exec {
+  width: 10rem;
+  overflow-x: hidden;
+  margin: 0.7rem;
+}
+
+.exec .pic {
+  height: 10rem;
+  width: 10rem;
+  background-size: contain;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.exec .pic.alphabet {
+  font-size: 4rem;
+  line-height: 10rem;
+  letter-spacing: 0.3rem;
+  color: white;
+  font-weight: lighter;
+}
+
+@media screen and (max-width: 589px) {
+  .exec {
+    width: 9rem;
+    margin: 0.5rem;
+  }
+  .exec .pic {
+    height: 9rem;
+    width: 9rem;
+  }
+  .exec .pic.alphabet {
+    font-size: 3.5rem;
+    line-height: 9rem;
+  }
+}
+
+.exec:nth-child(odd) .pic.alphabet {
+  background-color: var(--yellow);
+}
+
+.exec:nth-child(even) .pic.alphabet {
+  background-color: var(--green);
+}
+
+.discipline {
+  opacity: 0.5;
+  font-weight: bolder;
+}
+
+.position {
+  font-weight: lighter;
+}

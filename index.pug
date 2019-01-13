@@ -1,4 +1,5 @@
 include common/card.pug
+include common/splash.pug
 html(lang="en")
     head
         include common/head.pug
@@ -8,22 +9,21 @@ html(lang="en")
             include index.css
     body
         include common/topbar.pug
-        section.splash
-            h1 We’re here to clear the mist around AI
+        +splash("assets/justin.jpg","We’re here to clear the mist around AI")
         section#event.flex.vertical.align-center
             h1 Events
             div.card-container.flex
                 //- events are injected form compile.js
                 each ev in events
-                    +card("files/"+ev.filename,ev["What type of event is this?"],ev["Title"],ev["Description"],new Date(ev["When?"]).toLocaleString(),ev["Action Link"])
+                    +card(ev.filename,ev["What type of event is this?"],ev["Title"],ev["Description"],ev["When?"],ev["Action Link"])
             a.action.solid(href="//www.facebook.com/pg/UofT.MIST/events/" target="_blank" rel="noopener") VIEW ALL
             br
         section#about.duo
-            img(src="http://utmist.sa.utoronto.ca/files/2017/08/Photo-2017-07-22-3-24-53-PM-1024x683.jpg")
+            img(src="assets/founders.jpg")
             div.abouttext.flex.vertical
                 h1 About Us
                 p University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization within the University of Toronto. Our mission is to let more people get to know about artificial intelligence and “clear the mist” around it! 
-                a.action.solid(href="//utmist.sa.utoronto.ca/our-team/" target="_blank" rel="noopener") READ MORE
+                a.action.solid(href="/team.html" target="_blank" rel="noopener") READ MORE
         //- section.flex.wrap.justify-center.sponsor
         //-     h1.fullwidth.text-center Thanks to Our Sponsors
         //-     p.fullwidth.text-center UTMIST wouldn't be so great without
@@ -37,3 +37,5 @@ html(lang="en")
                 a.action.outline.question(href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener") GOT A QUESTION?
             img(src="assets/betty.jpg")
         include common/footer.pug
+        script(src="https://cdn.jsdelivr.net/npm/moment@2.23.0/moment.min.js" defer)
+        script(src="common/date.js" defer)
