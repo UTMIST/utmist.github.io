@@ -1,5 +1,6 @@
 #about p {
   white-space: pre-wrap;
+  margin: 0 5%;
 }
 #about,
 #execs{
