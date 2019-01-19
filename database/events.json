@@ -1,12 +1,38 @@
 [
   {
     "Timestamp": "1/10/2019 20:57:53",
-    "What type of event is this?": "Workshop",
+    "What type of event is this?": "Talk Series",
     "When?": "1/16/2019 0:00:00",
     "Title": "Graph Neural Net On Computer Vision",
     "Description": "Led by Arie Huan Ling, Graduate Research Student at University of Toronto, Nvidia AI Research lab and Vector Institute",
     "Cover Photo": "https://drive.google.com/open?id=1CRjcbC_RYFdz7RbmxdeNCTt5X4TZBTdK",
     "Action Link": "https://drive.google.com/file/d/1f-ypidMp3BdCRVV-PTFeuJU4_VeYLllU/view",
     "filename": "./files/1CRjcbC_RYFdz7RbmxdeNCTt5X4TZBTdK_linghuan - UTMIST.jpg"
+  },
+  {
+    "Timestamp": "",
+    "What type of event is this?": "Workshop",
+    "When?": "2/?/2019   ",
+    "Title": "Google Workshop"
+  },
+  {
+    "Timestamp": "",
+    "What type of event is this?": "Workshop",
+    "When?": "2/?/2019",
+    "Title": "MIST101"
+  },
+  {
+    "Timestamp": "",
+    "What type of event is this?": "Talk Series",
+    "When?": "3/?/2019",
+    "Title": "",
+    "Description": "Led by Min Liang"
+  },
+  {
+    "Timestamp": "",
+    "What type of event is this?": "Talk Series",
+    "When?": "3/?/2019",
+    "Title": "",
+    "Description": "Led by Jekaterina"
   }
 ]
