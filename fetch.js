@@ -159,7 +159,10 @@ async function main() {
         sheetToJson(EVENTS_SHEET, "G", sheet),
         grabAllFiles(EVENTS_COVER_FOLDER, drive)
     ]);
-    eventsJSON.forEach(event => {
+    // only handle those with photos
+    eventsJSON
+        .filter(e => e["Cover Photo"])
+        .forEach(event => {
         const maybeid = ExtractID(event["Cover Photo"]);
         if (!maybeid)
             throw new Error("Missing Cover photo " + event["Title"]);

@@ -195,13 +195,16 @@ async function main() {
     grabAllFiles(EVENTS_COVER_FOLDER, drive)
   ])
 
-  eventsJSON.forEach(event => {
-    const maybeid = ExtractID(event["Cover Photo"])
-    if (!maybeid) throw new Error("Missing Cover photo " + event["Title"])
-    const pic = picIDName.find(p => p.id === maybeid)
-    if (pic) event["filename"] = pic.name
-    else throw new Error("Picture not in folder " + event["Title"])
-  })
+  // only handle those with photos
+  eventsJSON
+    .filter(e => e["Cover Photo"])
+    .forEach(event => {
+      const maybeid = ExtractID(event["Cover Photo"])
+      if (!maybeid) throw new Error("Missing Cover photo " + event["Title"])
+      const pic = picIDName.find(p => p.id === maybeid)
+      if (pic) event["filename"] = pic.name
+      else throw new Error("Picture not in folder " + event["Title"])
+    })
   fs.writeFileSync(EVENTS_PATH, JSON.stringify(eventsJSON, null, 2))
   console.log(eventsJSON.length + " events imported")
 
