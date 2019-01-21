@@ -1,12 +1,50 @@
 [
   {
     "Timestamp": "1/10/2019 20:57:53",
-    "What type of event is this?": "Workshop",
-    "When?": "1/16/2019 0:00:00",
     "Title": "Graph Neural Net On Computer Vision",
-    "Description": "Led by Arie Huan Ling, Graduate Research Student at University of Toronto, Nvidia AI Research lab and Vector Institute",
+    "Event Type": "Talk Series",
+    "Time": "11/16/2018 0:00:00",
+    "Location": "",
+    "Event Description": "Led by Arie Huan Ling, Graduate Research Student at University of Toronto, Nvidia AI Research lab and Vector Institute",
+    "Chief Executor": "",
     "Cover Photo": "https://drive.google.com/open?id=1CRjcbC_RYFdz7RbmxdeNCTt5X4TZBTdK",
     "Action Link": "https://drive.google.com/file/d/1f-ypidMp3BdCRVV-PTFeuJU4_VeYLllU/view",
     "filename": "./files/1CRjcbC_RYFdz7RbmxdeNCTt5X4TZBTdK_linghuan - UTMIST.jpg"
+  },
+  {
+    "Timestamp": "",
+    "Title": "Google Workshop",
+    "Event Type": "Workshop",
+    "Time": "2/?/2019",
+    "Location": "",
+    "Event Description": "",
+    "Chief Executor": "Lily"
+  },
+  {
+    "Timestamp": "",
+    "Title": "MIST101 #3 - CV module",
+    "Event Type": "Workshop",
+    "Time": "2/7/2019",
+    "Location": "",
+    "Event Description": "Computer vision by Justin Yuan and Steven Liu",
+    "Chief Executor": "Justin"
+  },
+  {
+    "Timestamp": "",
+    "Title": "TBD",
+    "Event Type": "Talk Series",
+    "Time": "3/?/2019",
+    "Location": "",
+    "Event Description": "Led by Min Liang",
+    "Chief Executor": "Litos"
+  },
+  {
+    "Timestamp": "",
+    "Title": "TBD",
+    "Event Type": "Talk Series",
+    "Time": "3/?/2019",
+    "Location": "",
+    "Event Description": "Led by Jekaterina",
+    "Chief Executor": "Litos"
   }
 ]

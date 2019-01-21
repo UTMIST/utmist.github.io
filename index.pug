@@ -14,8 +14,8 @@ html(lang="en")
             h1 Events
             div.card-container.flex
                 //- events are injected form compile.js
-                each ev in events
-                    +card(ev.filename,ev["What type of event is this?"],ev["Title"],ev["Description"],ev["When?"],ev["Action Link"])
+                each ev in events.filter(ev=>ev.filename)
+                    +card(ev.filename,ev["Event Type"],ev["Title"],ev["Event Description"],ev["Time"],ev["Action Link"])
             a.action.solid(href="//www.facebook.com/pg/UofT.MIST/events/" target="_blank" rel="noopener") VIEW ALL
             br
         section#about.duo
