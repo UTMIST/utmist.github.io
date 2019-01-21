@@ -17,5 +17,10 @@ function niceDate(datestr) {
   }
 }
 
-for (let el of document.querySelectorAll(".date"))
-  el.textContent = niceDate(new Date(el.textContent))
+for (let el of document.querySelectorAll(".date")) {
+  if (moment(el.textContent).isValid()) {
+    el.textContent = niceDate(new Date(el.textContent))
+  } else {
+    el.textContent = "TBD"
+  }
+}
