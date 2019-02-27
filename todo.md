@@ -3,6 +3,6 @@
     - [x] render into view
 - [x] integrate crew view
 - [x] subscribe button visible from top
-- [ ] view all
-- [ ] events sheet
+- [x] view all
+- [x] events sheet
 - [ ] team people by department

@@ -69,7 +69,7 @@ h2 {
   font-family: OpenSansCondensedBold, sans-serif;
 }
 
-hr{
+hr {
   margin: 0 30vw;
 }
 
@@ -90,17 +90,18 @@ hr{
 /* popping headline */
 .splash > h1 {
   position: absolute;
-  right: 5%;
-  top: 30%;
-  max-width: 32rem;
-  width: 40%;
+  right: 2%;
+  top: 50%;
+  max-width: 80vh;
+  width: 60%;
   word-spacing: 1rem;
   letter-spacing: 0.1rem;
   text-align: left;
   color: white;
   text-shadow: var(--darkshadow);
+  transform: translateY(-50%);
+  margin: 0;
 }
-
 
 .flex {
   display: flex;
@@ -190,17 +191,18 @@ input[type="email"] {
   .duo {
     grid-template-areas: "top top" "bottom bottom";
   }
-  .splash > h1 {
+  /* .splash > h1 {
     font-size: 2.5rem;
     top: 15%;
     word-spacing: 0;
     width: 50%;
-  }
+  } */
 }
 
 p {
   line-height: 1.6rem;
 }
+
     </style>
     <title>Team UTMIST</title>
     <style>#about p {
@@ -372,7 +374,7 @@ header > .links {
     display: none;
   }
   .links > a {
-    margin: 0 2rem;
+    margin: 0 1.5rem;
   }
 }
 @media screen and (max-width: 589px) {
