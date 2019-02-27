@@ -9,7 +9,7 @@ function compile() {
     .filter(fn => fn.endsWith(".pug"))
     .forEach(pg => {
       const html = pug.renderFile(pg, {
-        events: events.slice(-10),
+        events,
         execs,
         pretty: true
       })

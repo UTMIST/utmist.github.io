@@ -12,11 +12,15 @@ html(lang="en")
         +splash("assets/justin.jpg","We’re here to clear the mist around AI")
         section#event.flex.vertical.align-center
             h1 Events
+            input#viewall-events(type="checkbox" hidden)
             div.card-container.flex
                 //- events are injected form compile.js
-                each ev in events.filter(ev=>ev.filename)
-                    +card(ev.filename,ev["Event Type"],ev["Title"],ev["Event Description"],ev["Time"],ev["Action Link"])
-            a.action.solid(href="//www.facebook.com/pg/UofT.MIST/events/" target="_blank" rel="noopener") VIEW ALL
+                each ev in events.filter(ev=>ev.filepath)
+                    +card(ev.filepath,ev["Type"],ev["Title"],ev["Summary"],ev["DateTime"],
+                        ev[new Date(ev["DateTime"])>new Date()?"PreLink":"PostLink"]
+                    )
+                label#viewall.action.solid(for="viewall-events") VIEW ALL
+                label#collapse.action.solid(for="viewall-events") COLLAPSE
             br
         section#about.duo
             img(src="assets/group.JPG")

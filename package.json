@@ -8,7 +8,9 @@
     "build": "node compile.js"
   },
   "dependencies": {
+    "@types/papaparse": "^4.5.7",
     "moment": "^2.23.0",
+    "papaparse": "^4.6.3",
     "pug": "*"
   },
   "devDependencies": {
