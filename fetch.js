@@ -6,6 +6,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 // import readline from "readline"
 const googleapis_1 = require("googleapis");
+const https_1 = __importDefault(require("https"));
+const papaparse_1 = require("papaparse");
+function parseCSVUrl(url, config) {
+    return new Promise((y, n) => {
+        const csvchunks = [];
+        https_1.default.get(url, res => {
+            res.on("data", csvchunks.push.bind(csvchunks));
+            res.on("end", () => {
+                papaparse_1.parse(csvchunks.join(""), {
+                    ...config,
+                    complete: y,
+                    error: n,
+                });
+            });
+        });
+    });
+}
 // If modifying these scopes, delete token.json.
 // const SCOPES = [
 //   "https://www.googleapis.com/auth/spreadsheets.readonly",
@@ -17,27 +34,15 @@ const googleapis_1 = require("googleapis");
 // time.
 // const TOKEN_PATH = "token.json"
 const EVENTS_PATH = "./database/events.json";
-const EVENTS_SHEET = "19-UyOGsQvPaIGq3llYtmCP4DVu_tjJd650xJmWF6dXw";
+// const EVENTS_SHEET = "19-UyOGsQvPaIGq3llYtmCP4DVu_tjJd650xJmWF6dXw"
+const EVENTS_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vS5keR7BMaKkzAfiiF4a2sHQETe4dVTZrZ4ZSY19gAHx6B0bCh2e2re1NCXcn00taXK96MqrUmbToXf/pub?output=csv";
 const EVENTS_COVER_FOLDER = "0Bz--zsExLJ5afmx1T1djTmZqc2twRHFnWExRTmp1alp1OXJ0M1VjR0R0clRweXlIYktPU1k";
 const EXECS_PATH = "./database/execs.json";
-const EXECS_SHEET = "1p1EhfK6oLeHLhPAiQnhMt-h1Bovf4j-Eyg5v8ZP4wME";
+// const EXECS_SHEET = "1p1EhfK6oLeHLhPAiQnhMt-h1Bovf4j-Eyg5v8ZP4wME"
+const EXECS_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSOWbJy69bxz8B2-mYU7q19vwCV75n6ae4ygE-LPrz1hdliN3yYlWOtAs40hsMIVc0LxzVRiQrBt8mG/pub?gid=1840609497&single=true&output=csv";
 // GLOBAL oath client
 let auth;
 const credentials = JSON.parse(process.env.GOOGLE_CREDENTIAL);
-async function SequentialPromise(promises) {
-    const results = [];
-    for (let p of promises) {
-        try {
-            results.push(await p);
-            // run slowly so as not to exceed google rate limit
-            await new Promise(y => setTimeout(y, 100));
-        }
-        catch (e) {
-            console.error(e);
-        }
-    }
-    return results;
-}
 // Load client secrets from a local file.
 // Authorize a client with credentials, then populate the auth object
 function ensureAuth() {
@@ -93,56 +98,35 @@ function authorize(creds) {
 //     })
 //   })
 // }
-async function sheetToJson(spreadsheetId, sheetName, lastCol, sheets) {
-    await ensureAuth();
-    const fetchTask = sheets.spreadsheets
-        .get({ spreadsheetId, includeGridData: true })
-        .then(res => res.data.sheets[0].data[0].rowData.length)
-        .then(numrows => sheets.spreadsheets.values.get({
-        spreadsheetId,
-        range: `${sheetName}!A1:${lastCol}${numrows}`
-    }))
-        .then(res => {
-        const rows = res.data.values;
-        const [headers, ...data] = rows;
-        const jsonData = data.map(row => {
-            return headers.reduce((obj, h, i) => {
-                obj[h] = row[i];
-                return obj;
-            }, {});
-        });
-        return jsonData;
-    }, err => (console.error("The API returned an error: " + err), []));
-    return fetchTask;
-}
-async function grabAllFiles(folderid, drive) {
-    const fileMetas = await drive.files
-        .list({ q: `'${folderid}' in parents` })
-        .then(res => {
-        const files = res.data.files;
-        return files.map(({ id, name, mimeType }) => ({ id, name, mimeType }));
+function csvToJson(rows) {
+    const [headers, ...data] = rows;
+    const jsonData = data.map(row => {
+        return headers.reduce((obj, h, i) => {
+            obj[h] = row[i];
+            return obj;
+        }, {});
     });
-    return SequentialPromise(fileMetas.map(f => {
-        return grabAFile(f.id, f.name, drive);
-    }));
+    return jsonData;
 }
 function grabMeta(id, drive) {
     return (drive.files
         // resposeType is important, otherwise you get text junk
         .get({ fileId: id })
-        .then(res => {
-        return res.data;
-    }));
+        .then(({ data }) => data));
 }
-function grabAFile(id, name, drive) {
+const filenames = fs_1.default.readdirSync(__dirname + "/files/");
+async function grabAFile(id, drive) {
+    if (filenames.some(f => f.startsWith(id)))
+        return "./files/" + filenames.find(f => f.startsWith(id));
+    const { name } = await grabMeta(id, drive);
     return (drive.files
         // resposeType is important, otherwise you get text junk
         .get({ fileId: id, alt: "media" }, { responseType: "stream" })
         .then(res => {
         const data = res.data;
-        const newfilename = `./files/${id}_${name}`;
-        data.pipe(fs_1.default.createWriteStream(newfilename));
-        return { id, name: newfilename };
+        const filepath = `./files/${id}_${name}`;
+        data.pipe(fs_1.default.createWriteStream(filepath));
+        return filepath;
     }));
 }
 function ExtractID(link) {
@@ -150,104 +134,32 @@ function ExtractID(link) {
         return link.replace("https://drive.google.com/open?id=", "");
     return "";
 }
-async function GrabEntity(config) {
-    const { sheet, sheetid, sheetname, lastcol, key, linkfield, linkfieldprecheck, drive, writepath, entityname } = config;
-    const data = await sheetToJson(sheetid, sheetname, lastcol, sheet);
-    for (let ev of data) {
-        const keyname = ev[key];
-        if (!ev[linkfield])
-            continue;
-        else if (linkfieldprecheck && ev[linkfieldprecheck])
-            continue;
-        else {
-            const maybeid = ExtractID(ev[linkfield]);
-            // missing profile pic is OK for now
-            if (!maybeid) {
-                console.error("Missing photo " + entityname + " " + keyname);
-                continue;
-            }
-            console.log("grabbing", entityname, keyname);
-            const meta = await grabMeta(maybeid, drive);
-            const pic = await grabAFile(maybeid, meta.name, drive);
-            if (pic)
-                ev["filename"] = pic.name;
-            else
-                throw new Error("Picture not found " + keyname);
-        }
-    }
-    fs_1.default.writeFileSync(writepath, JSON.stringify(data, null, 2));
-    console.log(data.length + " " + entityname + " imported");
-}
 async function main() {
     await ensureAuth();
     const drive = googleapis_1.google.drive({ version: "v3", auth });
-    const sheet = googleapis_1.google.sheets({ version: "v4", auth });
-    await GrabEntity({
-        sheetid: EVENTS_SHEET,
-        sheetname: "events",
-        lastcol: "I",
-        entityname: "events",
-        linkfield: "Cover Photo",
-        drive,
-        sheet,
-        key: "Title",
-        writepath: EVENTS_PATH
-    });
-    // const eventsJSON = await sheetToJson<Dict>(EVENTS_SHEET, "events", "G", sheet)
-    // for (let ev of eventsJSON) {
-    //   const evname = ev["Title"]
-    //   if (!ev["Cover Photo"]) continue
-    //   else {
-    //     const maybeid = ExtractID(ev["Cover Photo"])
-    //     // missing profile pic is OK for now
-    //     if (!maybeid) {
-    //       console.error("Missing event photo " + evname)
-    //       continue
-    //     }
-    //     console.log("grabbing event", evname)
-    //     const meta = await grabMeta(maybeid, drive)
-    //     const pic = await grabAFile(maybeid, meta.name, drive)
-    //     if (pic) ev["filename"] = pic.name
-    //     else throw new Error("Picture not found " + evname)
-    //   }
-    // }
-    // fs.writeFileSync(EVENTS_PATH, JSON.stringify(eventsJSON, null, 2))
-    // console.log(eventsJSON.length + " events imported")
-    // import executive profiles
-    await GrabEntity({
-        sheetid: EXECS_SHEET,
-        sheetname: "Execs",
-        lastcol: "O",
-        entityname: "execs",
-        linkfield: "Profile Picture",
-        linkfieldprecheck: "Profile Link",
-        drive,
-        sheet,
-        key: "First Name",
-        writepath: EXECS_PATH
-    });
-    // const execsJSON = await sheetToJson<Dict>(EXECS_SHEET, "Execs", "O", sheet)
-    // for (let ex of execsJSON) {
-    //   const prefname = ex["Preferred Name"] || ex["First Name"]
-    //   if (ex["Profile Link"]) continue
-    //   else if (ex["Profile Picture"]) {
-    //     const maybeid = ExtractID(ex["Profile Picture"])
-    //     // missing profile pic is OK for now
-    //     if (!maybeid) {
-    //       console.error("Missing profile photo " + prefname)
-    //       continue
-    //     }
-    //     console.log("grabbing exec", prefname)
-    //     const meta = await grabMeta(maybeid, drive)
-    //     const pic = await grabAFile(maybeid, meta.name, drive)
-    //     if (pic) ex["filename"] = pic.name
-    //     else throw new Error("Picture not found " + prefname)
-    //   } else {
-    //     console.error("Missing profile photo " + prefname)
-    //   }
-    // }
-    // fs.writeFileSync(EXECS_PATH, JSON.stringify(execsJSON, null, 2))
-    // console.log(execsJSON.length + " execs imported")
+    // const sheet = google.sheets({ version: "v4", auth })
+    const eventsSheet = await parseCSVUrl(EVENTS_SHEET_URL);
+    const eventsJson = csvToJson(eventsSheet.data);
+    for (const ev of eventsJson) {
+        if (ev["Image"]) {
+            console.log("grabbing image for", ev["Title"]);
+            const filepath = await grabAFile(ExtractID(ev["Image"]), drive);
+            ev.filepath = filepath;
+        }
+    }
+    console.log(eventsJson.length, "events imported");
+    fs_1.default.writeFileSync(EVENTS_PATH, JSON.stringify(eventsJson));
+    const execsSheet = await parseCSVUrl(EXECS_SHEET_URL);
+    const execsJson = csvToJson(execsSheet.data);
+    for (const ex of execsJson) {
+        if (ex["Profile Picture"]) {
+            console.log("grabbing Profile Picture for", ex["First Name"]);
+            const filepath = await grabAFile(ExtractID(ex["Profile Picture"]), drive);
+            ex.filepath = filepath;
+        }
+    }
+    fs_1.default.writeFileSync(EXECS_PATH, JSON.stringify(execsJson));
+    console.log(execsJson.length, "execs imported");
 }
 main();
 //# sourceMappingURL=fetch.js.map

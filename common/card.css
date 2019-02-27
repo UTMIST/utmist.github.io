@@ -1,3 +1,10 @@
+.card-container {
+  max-width: 72rem;
+  width: 100%;
+  padding: 5%;
+  overflow-x: auto;
+}
+
 .card {
   display: grid;
   /* no margin for img */
@@ -20,7 +27,7 @@
 
 .card > .img {
   grid-area: img;
-  height: 13rem;
+  height: 9rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -44,4 +51,28 @@
 .card > .content {
   grid-area: content;
   opacity: 0.7;
+  max-height: 12rem;
+  overflow-y: auto;
+}
+
+#viewall-events:checked + .card-container > .card:nth-child(n + 4) {
+  display: grid;
+}
+
+#viewall-events:not(:checked) + .card-container > .card:nth-child(n + 4) {
+  display: none;
+}
+
+#viewall-events:checked + .card-container > #viewall {
+  display: none;
+}
+
+#viewall-events:not(:checked) + .card-container > #collapse {
+  display: none;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

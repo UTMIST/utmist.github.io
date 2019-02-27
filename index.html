@@ -204,7 +204,14 @@ p {
     </style>
     <title>UTMIST</title>
     <style>
-      .card {
+      .card-container {
+  max-width: 72rem;
+  width: 100%;
+  padding: 5%;
+  overflow-x: auto;
+}
+
+.card {
   display: grid;
   /* no margin for img */
   grid-template-areas:
@@ -226,7 +233,7 @@ p {
 
 .card > .img {
   grid-area: img;
-  height: 13rem;
+  height: 9rem;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -250,14 +257,32 @@ p {
 .card > .content {
   grid-area: content;
   opacity: 0.7;
-}
-      .card-container {
-  max-width: 72rem;
-  width: 100%;
-  padding: 5%;
-  overflow-x: auto;
+  max-height: 12rem;
+  overflow-y: auto;
 }
 
+#viewall-events:checked + .card-container > .card:nth-child(n + 4) {
+  display: grid;
+}
+
+#viewall-events:not(:checked) + .card-container > .card:nth-child(n + 4) {
+  display: none;
+}
+
+#viewall-events:checked + .card-container > #viewall {
+  display: none;
+}
+
+#viewall-events:not(:checked) + .card-container > #collapse {
+  display: none;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+      
 .card {
   width: 17rem;
   margin: 0.5rem;
@@ -507,22 +532,46 @@ header > .links {
       <input id="menuopen" type="checkbox" hidden>
       <label class="hamburger" for="menuopen"><i class="fas fa-bars open"></i><i class="fas fa-times close"></i></label>
       <label class="clickaway" for="menuopen"></label>
-          <nav class="links"><a href="/index.html#event">Events</a><a href="/index.html#about">About Us</a><a href="/index.html#contact">Contact</a></nav>
+          <nav class="links"><a href="/index.html#event">Events</a><a href="/index.html#about">About Us</a><a href="/index.html#contact">Contact</a><a href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&amp;id=e5040d3cd0" target="_blank" rel="noopener">Subscribe</a></nav>
     </div>
     <header><a id="logolink" href="/"><img src="Logo/SVG/White Brain.svg">
         <h2>UTMIST</h2></a>
-          <nav class="links"><a href="/index.html#event">Events</a><a href="/index.html#about">About Us</a><a href="/index.html#contact">Contact</a></nav>
+          <nav class="links"><a href="/index.html#event">Events</a><a href="/index.html#about">About Us</a><a href="/index.html#contact">Contact</a><a href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&amp;id=e5040d3cd0" target="_blank" rel="noopener">Subscribe</a></nav>
     </header>
     <section class="splash" style="background-image:url('assets/justin.jpg')">
       <h1>We’re here to clear the mist around AI</h1>
     </section>
     <section class="flex vertical align-center" id="event">
       <h1>Events</h1>
-      <div class="card-container flex"><a class="card" href="https://drive.google.com/file/d/1f-ypidMp3BdCRVV-PTFeuJU4_VeYLllU/view" target="_blank" rel="noopener">
-          <div class="img" style="background-image:url(&quot;./files/1CRjcbC_RYFdz7RbmxdeNCTt5X4TZBTdK_linghuan - UTMIST.jpg&quot;)"></div><span class="tag">Talk Series</span><span class="date">11/16/2018 0:00:00</span>
-          <h4 class="title">Graph Neural Net On Computer Vision</h4>
-          <p class="content">Led by Arie Huan Ling, Graduate Research Student at University of Toronto, Nvidia AI Research lab and Vector Institute</p></a>
-      </div><a class="action solid" href="//www.facebook.com/pg/UofT.MIST/events/" target="_blank" rel="noopener">VIEW ALL</a><br>
+      <input id="viewall-events" type="checkbox" hidden>
+      <div class="card-container flex"><a class="card" href="https://docs.google.com/presentation/d/1cTKYWHvt-TgfxHylphhJPBsj9HlQGd3fOpzLv9GBJlk/edit?usp=sharing" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;./files/14EBnu_cJDMBmdEOAUo6RgAXtrdwNVH-0_MIST101 3 - hongyu chen.png&quot;)"></div><span class="tag">MIST101</span><span class="date">2/5/2019 6:30:00</span>
+          <h4 class="title">Computer Vision</h4>
+          <p class="content">This workshop covers basic knowledge of recent advances in computer vision. We’ll introduce the commonly used tools and models in solving computer vision tasks and explore how the frontier computer vision research is accelerating integration to real-life scenarios. Following that, we will demo a typical workflow for CV projects.</p></a><a class="card" href="https://scheeloong.github.io/pdf/RecommenderSystemMotivationChallengesSeminalWorks.pdf" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;./files/1zw9zqJTfrzvOaWkRCGmWdk51W6U-Ti0N_Academic Talk Copy 4 - hongyu chen.png&quot;)"></div><span class="tag">Talk Series</span><span class="date">11/27/2018 6:30:00</span>
+          <h4 class="title">Machine Learning for Recommender Systems</h4>
+          <p class="content">Recommender systems are intelligent machine learning systems that help customers discover personalized products from a dynamic pool of diverse choices. In this talk, Soon Chee Loong from Data-Driven Decision Making Laboratorywill share his insights on different types of recommender systems, their challenges, and various seminal approaches to tackle them.</p></a><a class="card" href="https://drive.google.com/file/d/1Q6LtRI_KjzDPwpez5Pt0hs5nr7ew8bGy/view?usp=sharing" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;./files/1T50cSBLmvFrnX1R96WUIa2Wl_Vk1yS0t_46212235_1042309389227738_6792329738825236480_n - hongyu chen.jpg&quot;)"></div><span class="tag">Talk Series</span><span class="date">11/20/2018 6:30:00</span>
+          <h4 class="title">Detecting Alzheimer's Disease</h4>
+          <p class="content">We had the honour to invite Jekaterina Novikova to talk about Machine Learning Methods in Detecting Alzheimer's Disease from Speech and Language. Jekaterina is a Director of Machine Learning at Winterlight Labs, where they focus on developing a novel AI technology that can quickly and accurately quantify speech and language patterns to help detect and monitor cognitive and mental diseases.</p></a><a class="card" href="http://www.cs.toronto.edu/~lunjun/an_odyssey_in_deep_rl.pdf" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;./files/1vLkYN0xR9y7KH0dOcyTmAuB_gXC3JrKa_46294130_1041229766002367_3140304070485475328_n - hongyu chen.jpg&quot;)"></div><span class="tag">MIST101</span><span class="date">11/19/2018 6:30:00</span>
+          <h4 class="title">Reinforcement Learning </h4>
+          <p class="content">Lunjun Zhang will be providing an enriched introduction to reinforcement learning, one of the most active fields of AI research today. The workshop will cover both the fundamental ideas and several state-of-the-art methods including value iteration, policy gradients, actor critic, Q learning, and exploration strategies. The workshop will also explore how concepts from optimisation and information theory are used for control.</p></a><a class="card" href="https://docs.google.com/presentation/d/1v68ag3A9trfvPtHfsv40KyHhi4Q1WQrIU6eUgiZKB74/edit?usp=sharing" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;./files/1DdrIBgyt1f0aWGY_hytbIZQ7tcqNagN2_MIST101 1 - hongyu chen.PNG&quot;)"></div><span class="tag">MIST101</span><span class="date">11/8/2018 6:30:00</span>
+          <h4 class="title">Introduction to Machine Learning </h4>
+          <p class="content">A general introduction to machine learning fundamentals and a demonstration of typical workflow in solving machine learning problems.</p></a><a class="card" href="https://medium.com/@utorontomist/machine-translation-today-78dd8bd1158c" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;./files/1dUgMXjcXdL5ysxonERq7KtSbVjJpMa82_44967341_1020691324722878_7602628280457363456_n - hongyu chen.jpg&quot;)"></div><span class="tag">Talk Series</span><span class="date">10/30/2018 6:30:00</span>
+          <h4 class="title">Machine Translations</h4>
+          <p class="content">We had the honour to invite Jun Gao to talk about Recent Advances in Neural Machine Translation. Jun Gao graduated from Peking University with fruitful experiences gained from working in both academia and industry. Currently, he is a graduate student in the Machine Learning Group here at UofT.</p></a><a class="card" href="https://medium.com/@utorontomist/deep-learning-on-graphs-for-computer-vision-cnn-rnn-and-gnn-c114d6004678" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;./files/1u2I1s0vELbVRq888-IObR5DAc1NbGNaZ_43161158_998097003648977_5971235328743178240_n - hongyu chen.jpg&quot;)"></div><span class="tag">Paper Reading</span><span class="date">10/9/2018 6:30:00</span>
+          <h4 class="title">Deep Learning on Graphs: CNN, RNN, GNN</h4>
+          <p class="content">We are hosting the first session of our research paper reading group series on Graph Neural Net on Computer Vision Problems with Arie Huan Ling from NVIDIA AI Research lab and Vector Institute as our guest speaker!</p></a><a class="card" href="https://docs.google.com/presentation/d/1bc5wusrhi2TleboWbvcSnwKfR4q-Y8_OnyDyvUeLYaQ/edit?usp=sharing" target="_blank" rel="noopener">
+          <div class="img" style="background-image:url(&quot;./files/14gpyI5FR71T76t3viPMSJetKMTOncUCK_Copy of DSC05272 - hongyu chen.jpg&quot;)"></div><span class="tag">Meeting</span><span class="date">9/13/2018 6:30:00</span>
+          <h4 class="title">Annual General Meeting </h4>
+          <p class="content">UTMIST’s mission is to clear the mist around Machine Learning and create a platform of opportunities for UofT students to get involved in the ML community in Toronto. This year we are hoping to bond with more AI/ML enthusiasts, no matter with previous experience or not. MIST101 will stay with a re-structured format for new-comers while more hands-on projects and deeper study with researchers on state-to-art techniques are provided.</p></a>
+        <label class="action solid" id="viewall" for="viewall-events">VIEW ALL</label>
+        <label class="action solid" id="collapse" for="viewall-events">COLLAPSE</label>
+      </div><br>
     </section>
     <section class="duo" id="about"><img src="assets/group.JPG">
       <div class="abouttext flex vertical">

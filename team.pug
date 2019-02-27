@@ -25,6 +25,6 @@ html(lang="en")
         h1.text-center Meet The Team
         section#execs.default-margin.flex.justify-center.text-center.wrap
             each ex in execs
-                +exec(`${ex["Preferred Name"]||ex["First Name"]} ${ex["Last Name"]}`, ex["Discipline"], ex["Position"], ex["Profile Link"]||ex["filename"])
+                +exec(`${ex["Preferred Name"]||ex["First Name"]} ${ex["Last Name"]}`, ex["Discipline"], ex["Position"], ex["Profile Link"]||ex["filepath"])
         include common/footer.pug
         
