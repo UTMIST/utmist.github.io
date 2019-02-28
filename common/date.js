@@ -9,7 +9,12 @@ const now = moment()
 
 function niceDate(datestr) {
   const d = moment(datestr)
-  return d.fromNow()
+  // past event
+  if (d.isBefore(now)) {
+    return d.fromNow()
+  } else {
+    return d.toNow()
+  }
 }
 
 for (let el of document.querySelectorAll(".date")) {
