@@ -112,6 +112,7 @@ function authorize(creds: typeof credentials) {
 //   })
 // }
 
+type Dict<V = any> = { [name: string]: V }
 function csvToJson(rows: string[][]) {
   const [headers, ...data] = rows
   const jsonData = data.map(row => {
@@ -161,8 +162,6 @@ function ExtractID(link: string) {
     return link.replace("https://drive.google.com/open?id=", "")
   return ""
 }
-
-type Dict<V = any> = { [name: string]: V }
 
 async function main() {
   await ensureAuth()
