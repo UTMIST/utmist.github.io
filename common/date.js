@@ -12,7 +12,7 @@ function niceDate(datestr) {
   return d.fromNow()
 }
 
-for (let el of document.querySelectorAll(".date")) {
+for (let el of Array.from(document.querySelectorAll(".date"))) {
   if (moment(el.textContent).isValid()) {
     el.textContent = niceDate(new Date(el.textContent))
   } else {
