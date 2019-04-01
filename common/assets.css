@@ -1,17 +1,21 @@
 @font-face {
   font-family: OpenSansCondensedLight;
+  font-display: swap;
   src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Light.ttf);
 }
 @font-face {
   font-family: OpenSansCondensedBold;
+  font-display: swap;
   src: url(Fonts/Open_Sans_Condensed/OpenSansCondensed-Bold.ttf);
 }
 @font-face {
   font-family: Instruction;
+  font-display: swap;
   src: url(Fonts/instruction/Instruction.otf);
 }
 @font-face {
   font-family: Lato;
+  font-display: swap;
   src: url(Fonts/Lato/Lato-Regular.ttf);
 }
 
