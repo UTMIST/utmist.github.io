@@ -1,63 +1,109 @@
 #about p {
-  white-space: pre-wrap;
-  margin: 0 5%;
+    white-space: pre-wrap;
+    margin: 0 5%;
 }
+
 #about,
-#execs{
-  max-width: 1280px;
-  margin: auto;
+#execs,
+#open-positions {
+    max-width: 1280px;
+    margin: auto;
 }
 
 .exec {
-  width: 10rem;
-  overflow-x: hidden;
-  margin: 0.7rem;
+    width: 10rem;
+    overflow-x: hidden;
+    margin: 0.7rem;
 }
 
 .exec .pic {
-  height: 10rem;
-  width: 10rem;
-  background-size: contain;
-  background-position: center;
-  border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
 }
 
 .exec .pic.alphabet {
-  font-size: 4rem;
-  line-height: 10rem;
-  letter-spacing: 0.3rem;
-  color: white;
-  font-weight: lighter;
+    font-size: 4rem;
+    line-height: 10rem;
+    letter-spacing: 0.3rem;
+    color: white;
+    font-weight: lighter;
 }
 
 @media screen and (max-width: 589px) {
-  .exec {
-    width: 9rem;
-    margin: 0.5rem;
-  }
-  .exec .pic {
-    height: 9rem;
-    width: 9rem;
-  }
-  .exec .pic.alphabet {
-    font-size: 3.5rem;
-    line-height: 9rem;
-  }
+    .exec {
+        width: 9rem;
+        margin: 0.5rem;
+    }
+    .exec .pic {
+        height: 9rem;
+        width: 9rem;
+    }
+    .exec .pic.alphabet {
+        font-size: 3.5rem;
+        line-height: 9rem;
+    }
 }
 
 .exec:nth-child(odd) .pic.alphabet {
-  background-color: var(--yellow);
+    background-color: var(--yellow);
 }
 
 .exec:nth-child(even) .pic.alphabet {
-  background-color: var(--green);
+    background-color: var(--green);
 }
 
 .discipline {
-  opacity: 0.5;
-  font-weight: bolder;
+    opacity: 0.5;
+    font-weight: bolder;
 }
 
 .position {
-  font-weight: lighter;
+    font-weight: lighter;
+}
+
+.posting {
+    margin: 0.5rem 5%;
+}
+
+.posting>.action {
+    display: block;
+}
+
+.posting>* {
+    padding: 1rem;
+}
+
+.posting>pre {
+    font-family: Lato, sans-serif;
+    line-height: 1.5rem;
+    word-wrap: normal;
+    white-space: pre-wrap;
+    /* Since CSS 2.1 */
+}
+
+.posting>summary {
+    cursor: pointer;
+    box-shadow: 0 0 0.3rem gray;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+}
+
+.posting:hover>summary {
+    background-color: var(--orange);
+    color: white;
+}
+
+details.posting summary::-webkit-details-marker {
+    display: none;
+}
+
+.posting .spotsremain {
+    margin-left: 0.5rem;
+    width: 5rem;
+    display: inline-block;
 }

@@ -8,6 +8,25 @@ mixin exec(name, discipline, position, photo)
         p= name
         .discipline= discipline
         .position= position
+mixin position(posting)
+    - var id = posting["Title"].toLowerCase().split(' ').join('')
+    details.posting(id=id)
+        summary
+            span= posting["Title"]
+            span
+                +applybutton(posting["Title"])
+                span.spotsremain= posting["Spots Remaining"] + (posting["Spots Remaining"]>1?" spots left ":" spot left ")
+        h1= posting["Title"]
+        pre= posting["Detailed Description"]
+        +applybutton(posting["Title"])
+        br
+        a.action.outline(href="./team.html#"+id,target="_blank") Copy Link To Share
+        br
+
+mixin applybutton(title)
+    a.action.solid(href="mailto:utorontomist@gmail.com?subject=Application for UTMIST "+title+"&body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.") Apply
+
+
 html(lang="en")
     head
         include common/head.pug
@@ -26,5 +45,13 @@ html(lang="en")
         section#execs.default-margin.flex.justify-center.text-center.wrap
             each ex in execs
                 +exec(`${ex["Preferred Name"]||ex["First Name"]} ${ex["Last Name"]}`, ex["Discipline"], ex["Position"], ex["Profile Link"]||ex["filepath"])
+        br
+        hr        
+        h1.text-center#join Open Positions
+        section#open-positions.default-margin
+            each re in recruits
+                +position(re)
+        br
+        script(src="./team.js")
         include common/footer.pug
         
