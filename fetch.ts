@@ -50,6 +50,8 @@ const EXECS_PATH = "./database/execs.json"
 const EXECS_SHEET_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vSOWbJy69bxz8B2-mYU7q19vwCV75n6ae4ygE-LPrz1hdliN3yYlWOtAs40hsMIVc0LxzVRiQrBt8mG/pub?gid=1840609497&single=true&output=csv"
 
+const RECRUIT_PATH = "./database/recruit.json"
+const RECRUIT_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTASFPoEztC1aJkH2wZqEMI8dOZhPMjZOc6NN6NT0VUN0Aa3naB63UPBQBbeUxEFEMxx1-WsrGaYK6Q/pub?gid=1382893314&single=true&output=csv"
 // GLOBAL oath client
 let auth: OAuth2Client
 const credentials = JSON.parse(process.env.GOOGLE_CREDENTIAL)
@@ -178,6 +180,7 @@ async function main() {
   }
   console.log(eventsJson.length, "events imported")
   fs.writeFileSync(EVENTS_PATH, JSON.stringify(eventsJson))
+
   const execsSheet = await parseCSVUrl(EXECS_SHEET_URL)
   const execsJson = csvToJson(execsSheet.data)
   for (const ex of execsJson) {
@@ -189,5 +192,12 @@ async function main() {
   }
   fs.writeFileSync(EXECS_PATH, JSON.stringify(execsJson))
   console.log(execsJson.length, "execs imported")
+
+  const recruitSheet = await parseCSVUrl(RECRUIT_SHEET_URL)
+  const recruitJson = csvToJson(recruitSheet.data)
+  for (const rc of recruitJson)
+    rc["Spots Remaining"] = parseInt(rc["Spots Remaining"])
+  console.log(recruitJson.length, "recruitments imported")
+  fs.writeFileSync(RECRUIT_PATH, JSON.stringify(recruitJson))
 }
 main()

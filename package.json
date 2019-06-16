@@ -8,15 +8,15 @@
     "build": "node compile.js"
   },
   "dependencies": {
-    "@types/papaparse": "^4.5.7",
-    "moment": "^2.23.0",
-    "papaparse": "^4.6.3",
+    "@types/papaparse": "*",
+    "moment": "*",
+    "papaparse": "*",
     "pug": "*"
   },
   "devDependencies": {
-    "@types/node": "^10.12.18",
+    "@types/node": "*",
     "googleapis": "*",
-    "typescript": "^3.2.2"
+    "typescript": "*"
   },
   "keywords": []
 }

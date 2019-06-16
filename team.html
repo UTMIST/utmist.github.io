@@ -208,69 +208,114 @@ p {
     </style>
     <title>Team UTMIST</title>
     <style>#about p {
-  white-space: pre-wrap;
-  margin: 0 5%;
+    white-space: pre-wrap;
+    margin: 0 5%;
 }
+
 #about,
-#execs{
-  max-width: 1280px;
-  margin: auto;
+#execs,
+#open-positions {
+    max-width: 1280px;
+    margin: auto;
 }
 
 .exec {
-  width: 10rem;
-  overflow-x: hidden;
-  margin: 0.7rem;
+    width: 10rem;
+    overflow-x: hidden;
+    margin: 0.7rem;
 }
 
 .exec .pic {
-  height: 10rem;
-  width: 10rem;
-  background-size: contain;
-  background-position: center;
-  border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
 }
 
 .exec .pic.alphabet {
-  font-size: 4rem;
-  line-height: 10rem;
-  letter-spacing: 0.3rem;
-  color: white;
-  font-weight: lighter;
+    font-size: 4rem;
+    line-height: 10rem;
+    letter-spacing: 0.3rem;
+    color: white;
+    font-weight: lighter;
 }
 
 @media screen and (max-width: 589px) {
-  .exec {
-    width: 9rem;
-    margin: 0.5rem;
-  }
-  .exec .pic {
-    height: 9rem;
-    width: 9rem;
-  }
-  .exec .pic.alphabet {
-    font-size: 3.5rem;
-    line-height: 9rem;
-  }
+    .exec {
+        width: 9rem;
+        margin: 0.5rem;
+    }
+    .exec .pic {
+        height: 9rem;
+        width: 9rem;
+    }
+    .exec .pic.alphabet {
+        font-size: 3.5rem;
+        line-height: 9rem;
+    }
 }
 
 .exec:nth-child(odd) .pic.alphabet {
-  background-color: var(--yellow);
+    background-color: var(--yellow);
 }
 
 .exec:nth-child(even) .pic.alphabet {
-  background-color: var(--green);
+    background-color: var(--green);
 }
 
 .discipline {
-  opacity: 0.5;
-  font-weight: bolder;
+    opacity: 0.5;
+    font-weight: bolder;
 }
 
 .position {
-  font-weight: lighter;
+    font-weight: lighter;
 }
 
+.posting {
+    margin: 0.5rem 5%;
+}
+
+.posting>.action {
+    display: block;
+}
+
+.posting>* {
+    padding: 1rem;
+}
+
+.posting>pre {
+    font-family: Lato, sans-serif;
+    line-height: 1.5rem;
+    word-wrap: normal;
+    white-space: pre-wrap;
+    /* Since CSS 2.1 */
+}
+
+.posting>summary {
+    cursor: pointer;
+    box-shadow: 0 0 0.3rem gray;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.3s ease;
+}
+
+.posting:hover>summary {
+    background-color: var(--orange);
+    color: white;
+}
+
+details.posting summary::-webkit-details-marker {
+    display: none;
+}
+
+.posting .spotsremain {
+    margin-left: 0.5rem;
+    width: 5rem;
+    display: inline-block;
+}
     </style>
   </head>
   <body>
@@ -407,11 +452,11 @@ header > .links {
       <input id="menuopen" type="checkbox" hidden="hidden"/>
       <label class="hamburger" for="menuopen"><i class="fas fa-bars open"></i><i class="fas fa-times close"></i></label>
       <label class="clickaway" for="menuopen"></label>
-          <nav class="links"><a href="/index.html#event">Events</a><a href="/index.html#about">About Us</a><a href="/index.html#contact">Contact</a><a href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&amp;id=e5040d3cd0" target="_blank" rel="noopener">Subscribe</a></nav>
+          <nav class="links"><a href="/index.html#event">Events</a><a href="/team.html#join">Join Us</a><a href="/index.html#contact">Contact</a><a href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&amp;id=e5040d3cd0" target="_blank" rel="noopener">Subscribe</a></nav>
     </div>
     <header><a id="logolink" href="/"><img src="Logo/SVG/White Brain.svg"/>
         <h2>UTMIST</h2></a>
-          <nav class="links"><a href="/index.html#event">Events</a><a href="/index.html#about">About Us</a><a href="/index.html#contact">Contact</a><a href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&amp;id=e5040d3cd0" target="_blank" rel="noopener">Subscribe</a></nav>
+          <nav class="links"><a href="/index.html#event">Events</a><a href="/team.html#join">Join Us</a><a href="/index.html#contact">Contact</a><a href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&amp;id=e5040d3cd0" target="_blank" rel="noopener">Subscribe</a></nav>
     </header>
     <section class="splash" style="background-image:url('assets/achievement-agreement-arms-1068523.jpg')">
       <h1></h1>
@@ -429,7 +474,7 @@ University of Toronto Machine Intelligence Student Team (UTMIST) is an officiall
         <p>Teng Tu</p>
         <div class="discipline">CompSci + Psy 2T1</div>
         <div class="position">External Associate + Marketing Associate</div></span><span class="exec">
-        <div class="pic" style="background-image:url('https://media.licdn.com/dms/image/C5603AQFzCGx_NtwI2w/profile-displayphoto-shrink_800_800/0?e=1553126400&amp;v=beta&amp;t=7LXRETRCUE1CmIj5U7USwrpncd0Ycq-3ZA3S_luZfLY')"></div>
+        <div class="pic" style="background-image:url('./files/1bQMApSv7xnne3NcdyoqWSXUppg9B8nOR_zEgCA5P - Steven Z.png')"></div>
         <p>Steven Zhao</p>
         <div class="discipline">ECE2T1</div>
         <div class="position">Project Associate</div></span><span class="exec">
@@ -437,11 +482,11 @@ University of Toronto Machine Intelligence Student Team (UTMIST) is an officiall
         <p>Yvette Zhao</p>
         <div class="discipline">EngSci2T1</div>
         <div class="position">Marketing Associate</div></span><span class="exec">
-        <div class="pic" style="background-image:url('https://media.licdn.com/dms/image/C5603AQFF0xrag7Pu3A/profile-displayphoto-shrink_800_800/0?e=1553126400&amp;v=beta&amp;t=PBifS9pYaKBPiF1SZE5CQDhxj75QjZ7fU1sMfXnJYmM')"></div>
+        <div class="pic" style="background-image:url('./files/1j6ryzYdU_ksms3tvLZlCVE_l3DtAs8v3_charlie.jpeg')"></div>
         <p>Charlie Chen</p>
         <div class="discipline">EngSci2T1</div>
         <div class="position">VP Communications</div></span><span class="exec">
-        <div class="pic" style="background-image:url('https://media.licdn.com/dms/image/C5603AQH1ugCLh86bTQ/profile-displayphoto-shrink_800_800/0?e=1553126400&amp;v=beta&amp;t=geXNeMAc405SMlCIwJAJDAhVXJLsKK89L7AbgDTLG8Y')"></div>
+        <div class="pic" style="background-image:url('./files/1q5dn3ST2BpcSwVd7XE6m1xtJKHVvtssN_abhi.jpeg')"></div>
         <p>Abhi Mahadevan</p>
         <div class="discipline">ComSci2T0</div>
         <div class="position">Project Director</div></span><span class="exec">
@@ -452,7 +497,11 @@ University of Toronto Machine Intelligence Student Team (UTMIST) is an officiall
         <div class="pic" style="background-image:url('./files/1wxSdxKuW6UjvqF1kgvcbKYsZsIFGBsPB_linkedin square - UTMIST.jpg')"></div>
         <p>Rain Shen</p>
         <div class="discipline">Engsci1T9</div>
-        <div class="position">Online Associate</div></span><span class="exec">
+        <div class="position">Communication Associate</div></span><span class="exec">
+        <div class="pic" style="background-image:url('./files/1132YpOVysjHSHjePD2V1dISL6MImhsX__20190523_123928 - Michal Fishkin.jpg')"></div>
+        <p>Michal Fishkin </p>
+        <div class="discipline">EngSci 2T2</div>
+        <div class="position">Technical Writer </div></span><span class="exec">
         <div class="pic alphabet">LZ</div>
         <p>Lily Zhang</p>
         <div class="discipline">ComSci2T0</div>
@@ -544,8 +593,108 @@ University of Toronto Machine Intelligence Student Team (UTMIST) is an officiall
         <div class="pic alphabet">MCC</div>
         <p>Matthieu Chan Chee</p>
         <div class="discipline">ComSci2T1</div>
-        <div class="position">Project Associate</div></span>
-    </section>
+        <div class="position">Project Associate</div></span><span class="exec">
+        <div class="pic alphabet">DK</div>
+        <p>Dorje Kongtsa</p>
+        <div class="discipline"></div>
+        <div class="position">Technical Writer</div></span>
+    </section><br/>
+    <hr/>
+    <h1 class="text-center" id="join">Open Positions</h1>
+    <section class="default-margin" id="open-positions">
+      <details class="posting" id="vpcommunications">
+        <summary><span>VP Communications</span><span><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST VP Communications&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><span class="spotsremain">1 spot left </span></span></summary>
+        <h1>VP Communications</h1>
+        <pre>VP Communications serves as the lubricant within the UTMIST exec team. The role communicates across sectors and intervenes when misunderstanding or ineffective work happens. The role work on team dynamics regularly.
+ 
+Being a vice president, discuss on meetings with president and other vps to make decisions on UTMIST’s directions
+- Lead the sector of communications to maintain club’s website, medium, twitter, email, and facebook accounts
+- Work with VP logistics to promote intra-team effective communication
+- Work with VP marketing to maintain club’s influence
+
+Why would you want to become a VP Communications?
+- It’s an opportunity for you to consistently apply your excellent team skills on valuable programs and have sustained impacts on UofT undergraduate and graduate students. 
+- You will be interacting with a large group of people where your communication and leadership skills can be demonstrated.  
+
+What we are looking for
+- Articulation skills for self and representing a team
+- Open-minded to different possibilities for a situation
+- Strong time management skills</pre><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST VP Communications&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><br/><a class="action outline" href="./team.html#vpcommunications" target="_blank">Copy Link To Share</a><br/>
+      </details>
+      <details class="posting" id="technicalwriter">
+        <summary><span>Technical Writer</span><span><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST Technical Writer&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><span class="spotsremain">2 spots left </span></span></summary>
+        <h1>Technical Writer</h1>
+        <pre>Technical writers have a mission to bring UTMIST resources beyond the University of Toronto Campus. In particular, the role will 
+- Attend UTMIST learning events in person
+- Utilize UTMIST and online resources to fully understand the material
+- Produce high quality articles on our Medium platform
+
+Why would you want to become a technical writer?
+- A great way to learn if you are not yet ready to do projects
+- Demonstrate soft skills to employers
+- Potential to join project teams after
+
+What we are looking for
+- Strong writing skills
+- Solid fundamentals in mathematics and probably programming. Machine learning experience not required
+- Unstoppable curiosity</pre><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST Technical Writer&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><br/><a class="action outline" href="./team.html#technicalwriter" target="_blank">Copy Link To Share</a><br/>
+      </details>
+      <details class="posting" id="communicationassociate">
+        <summary><span>Communication Associate</span><span><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST Communication Associate&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><span class="spotsremain">2 spots left </span></span></summary>
+        <h1>Communication Associate</h1>
+        <pre>Communication associates will share tasks to 
+- Maintain twitter, newsletter, email and facebook interactions (see “the whole sector” for detailed responsibilities) 
+- Lead web developers and technical writers to improve UTMIST’s website and Medium publications
+
+Why would you want to become a communication associate?
+- Realize your ideas on how to represent UTMIST to the outside world
+- Practice on a daily basis the most important soft skill in the workspace
+- Make strong connections to UTMIST’s driven and prospective execs
+
+What we are looking for
+- Passionate in building connections and talking to people
+- Confident in English speaking and writing
+</pre><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST Communication Associate&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><br/><a class="action outline" href="./team.html#communicationassociate" target="_blank">Copy Link To Share</a><br/>
+      </details>
+      <details class="posting" id="webdeveloper">
+        <summary><span>Web Developer</span><span><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST Web Developer&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><span class="spotsremain">1 spot left </span></span></summary>
+        <h1>Web Developer</h1>
+        <pre>UTMIST is actively exploring possibilities on the web platform to improve the experience of sponsors, speakers, and students. The role will
+- Develop new features of UTMIST’s online presence
+- Iterate on existing web code base for changing needs
+- Suggest different ways to improve UTMIST’s online experience
+
+Why would you want to be a web developer at UTMIST?
+- Deployment on the web is the last mile for any ML model
+- You will be mentored by a web developer with industry experience
+- Potential to collaborate with project teams to productionize findings
+
+What we are looking for
+- You know AI and are interested in Web, or know Web and are interested in AI
+- Strong software development background
+- Know what UX is, and why it is important
+</pre><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST Web Developer&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><br/><a class="action outline" href="./team.html#webdeveloper" target="_blank">Copy Link To Share</a><br/>
+      </details>
+      <details class="posting" id="photographer">
+        <summary><span>Photographer</span><span><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST Photographer&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><span class="spotsremain">2 spots left </span></span></summary>
+        <h1>Photographer</h1>
+        <pre>UTMIST puts great efforts on benefiting more people with current resources we have. Therefore, it’s vital to keep visual records of our self-created workshop series, projects, as well as guest speaker talks. Photographers will
+- Take turns to attend UTMIST events in person and record the audio/video of event content
+- Record memorable moments of events and project teams 
+- Curate pictures and build a gallery of UTMIST 
+
+Why would you want to be a photographer at UTMIST?
+- Spread valuable information to more audience, especially students thirsty for knowledge and opportunities 
+- Work with many other prospective students while having your own unique skill in the team
+
+What we are looking for
+-Understood framing, color and light to create a visually pleasing photograph
+(Amateur or beyond) Journalistic photography skill
+- Adequate commitment to physically attend the events 
+</pre><a class="action solid" href="mailto:utorontomist@gmail.com?subject=Application for UTMIST Photographer&amp;body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary.">Apply</a><br/><a class="action outline" href="./team.html#photographer" target="_blank">Copy Link To Share</a><br/>
+      </details>
+    </section><br/>
+    <script src="./team.js"></script>
     <footer class="flex vertical justify-center">
       <div class="text-center">© 2019 University of Toronto Machine Intelligence Team</div><a href="#">Back to top</a>
       <style>footer{
