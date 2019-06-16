@@ -32,21 +32,6 @@
     font-weight: lighter;
 }
 
-@media screen and (max-width: 589px) {
-    .exec {
-        width: 9rem;
-        margin: 0.5rem;
-    }
-    .exec .pic {
-        height: 9rem;
-        width: 9rem;
-    }
-    .exec .pic.alphabet {
-        font-size: 3.5rem;
-        line-height: 9rem;
-    }
-}
-
 .exec:nth-child(odd) .pic.alphabet {
     background-color: var(--yellow);
 }
@@ -89,6 +74,7 @@
     box-shadow: 0 0 0.3rem gray;
     border-radius: 2px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     transition: background-color 0.3s ease;
 }
@@ -106,4 +92,22 @@ details.posting summary::-webkit-details-marker {
     margin-left: 0.5rem;
     width: 5rem;
     display: inline-block;
+}
+
+@media screen and (max-width: 589px) {
+    .exec {
+        width: 9rem;
+        margin: 0.5rem;
+    }
+    .exec .pic {
+        height: 9rem;
+        width: 9rem;
+    }
+    .exec .pic.alphabet {
+        font-size: 3.5rem;
+        line-height: 9rem;
+    }
+    .posting .spotsremain {
+        display: none;
+    }
 }
