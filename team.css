@@ -70,9 +70,13 @@
 }
 
 .posting>summary {
-    cursor: pointer;
     box-shadow: 0 0 0.3rem gray;
+    cursor: pointer;
     border-radius: 2px;
+}
+
+.posting .summary {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -106,6 +110,10 @@ details.posting summary::-webkit-details-marker {
     .exec .pic.alphabet {
         font-size: 3.5rem;
         line-height: 9rem;
+    }
+    .posting .action {
+        display: block;
+        margin-top: 0.5rem;
     }
     .posting .spotsremain {
         display: none;

@@ -12,10 +12,11 @@ mixin position(posting)
     - var id = posting["Title"].toLowerCase().split(' ').join('')
     details.posting(id=id)
         summary
-            span= posting["Title"]
-            span
-                +applybutton(posting["Title"])
-                span.spotsremain= posting["Spots Remaining"] + (posting["Spots Remaining"]>1?" spots left ":" spot left ")
+            div.summary
+                span= posting["Title"]
+                span
+                    +applybutton(posting["Title"])
+                    span.spotsremain= posting["Spots Remaining"] + (posting["Spots Remaining"]>1?" spots left ":" spot left ")
         h1= posting["Title"]
         pre= posting["Detailed Description"]
         +applybutton(posting["Title"])
