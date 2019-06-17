@@ -1,0 +1,18 @@
+mixin positiondetail(posting)
+    - var id = posting["Title"].toLowerCase().split(' ').join('')
+    details.posting(id=id)
+        summary
+            div.summary
+                span= posting["Title"]
+                span
+                    +applybutton(posting["Title"])
+                    span.spotsremain= posting["Spots Remaining"] + (posting["Spots Remaining"]>1?" spots left ":" spot left ")
+        h1= posting["Title"]
+        pre= posting["Detailed Description"]
+        +applybutton(posting["Title"])
+        br
+        a.action.outline(href="./team.html#"+id,target="_blank") Copy Link To Share
+        br
+
+mixin applybutton(title)
+    a.action.solid(href="mailto:utorontomist@gmail.com?subject=Application for UTMIST "+title+"&body=Thank you for your interest in UTMIST! Please also attach your resume and any additional materials you feel necessary." target="_blank" rel="noopener") Apply

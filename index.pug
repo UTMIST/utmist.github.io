@@ -11,6 +11,11 @@ html(lang="en")
     body
         include common/topbar.pug
         +splash("assets/justin.jpg","We’re here to clear the mist around AI")
+        section#recruit.flex.vertical.align-center
+            h1 We Are Recruiting!
+            p Multiple positions available starting fall 2019. 
+            a.action.solid(href="/team.html#join" target="_blank" rel="noopener") Join Us
+            br
         section#event.flex.vertical.align-center
             h1 Events
             input#viewall-events(type="checkbox" hidden)
