@@ -92,12 +92,6 @@ details.posting summary::-webkit-details-marker {
     display: none;
 }
 
-.posting .spotsremain {
-    margin-left: 0.5rem;
-    width: 5rem;
-    display: inline-block;
-}
-
 @media screen and (max-width: 589px) {
     .exec {
         width: 9rem;
@@ -114,8 +108,5 @@ details.posting summary::-webkit-details-marker {
     .posting .action {
         display: block;
         margin-top: 0.5rem;
-    }
-    .posting .spotsremain {
-        display: none;
     }
 }

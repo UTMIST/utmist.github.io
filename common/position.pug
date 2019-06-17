@@ -4,9 +4,7 @@ mixin positiondetail(posting)
         summary
             div.summary
                 span= posting["Title"]
-                span
-                    +applybutton(posting["Title"])
-                    span.spotsremain= posting["Spots Remaining"] + (posting["Spots Remaining"]>1?" spots left ":" spot left ")
+                +applybutton(posting["Title"])
         h1= posting["Title"]
         pre= posting["Detailed Description"]
         +applybutton(posting["Title"])
