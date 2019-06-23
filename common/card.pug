@@ -1,7 +1,7 @@
 mixin card(imgsrc,tag,title,content,date,linkto)
     a.card(href=linkto  target="_blank" rel="noopener")
         //- img(src=imgsrc)
-        div.img(style="background-image:url(\""+imgsrc+"\")")
+        div.img(style="background-image:url('"+imgsrc+"')")
         span.tag= tag
         span.date= date
         h4.title= title
