@@ -57,6 +57,12 @@
     background-color: rgba(255, 255, 255, 0.8);
 }
 
+.finduson>* {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 
 /* non-phone */
 
@@ -71,9 +77,6 @@
         flex-wrap: wrap;
         justify-content: center;
         padding: 0;
-    }
-    .intouchtext .action {
-        margin-left: 0;
     }
     .intouchtext>form>#newsletter {
         margin-right: 0.5rem;

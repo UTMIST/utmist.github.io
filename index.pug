@@ -40,11 +40,21 @@ html(lang="en")
         //-     each val in [1,2,3,4]
         //-         img.default-margin(src="https://via.placeholder.com/150x150")
         section#contact.duo
-            div.intouchtext.flex.vertical
+            div.intouchtext.flex.vertical.text-center
                 h1 Newsletter
                 a.action.solid(href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&id=e5040d3cd0" target="_blank" rel="noopener") Subscribe
-                h1 Get in touch
-                a.action.outline.question(href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener") GOT A QUESTION?
+                h1 Find Us On
+                //- a.action.outline.question(href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener") GOT A QUESTION?
+                div.flex.justify-center.finduson
+                    a(href="https://twitter.com/UTMIST1" target="_blank" rel="noopener")
+                        <i class="fab fa-twitter"></i>
+                    a(href="https://medium.com/@utorontomist" target="_blank" rel="noopener")
+                        <i class="fab fa-medium-m"></i>
+                    a(href="mailto:utorontomist@gmail.com" target="_blank" rel="noopener")
+                        <i class="fas fa-envelope"></i>
+                    a(href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener")
+                        <i class="fab fa-facebook-square"></i>
+                br
             img(src="assets/betty.jpg")
         include common/footer.pug
         script(src="https://cdn.jsdelivr.net/npm/moment@2.23.0/moment.min.js" defer)
