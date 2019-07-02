@@ -340,133 +340,150 @@ details.posting summary::-webkit-details-marker {
   </head>
   <body>
     <style>header {
-  background-color: var(--primary);
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 9;
-  overflow-x: auto;
-  height: 3rem;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    overflow-x: auto;
+    height: 3rem;
 }
-header + * {
-  margin-top: 3rem;
+
+header+* {
+    margin-top: 3rem;
 }
+
 header,
 .hamburgerexpanded {
-  color: white;
+    color: white;
 }
+
 #logolink {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  max-width: 9rem;
-  margin: 0 5%;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    max-width: 9rem;
+    margin: 0 5%;
 }
-#logolink > img {
-  height: 2.5rem;
+
+#logolink>img {
+    height: 2.5rem;
 }
-#logolink > h2 {
-  font-family: Instruction, sans-serif;
-  height: 2rem;
-  margin: 0 0.4rem;
+
+#logolink>h2 {
+    font-family: Instruction, sans-serif;
+    height: 2rem;
+    margin: 0 0.4rem;
 }
 
 .links {
-  font-family: OpenSansCondensedBold, sans-serif;
-  font-size: 1.2rem;
+    font-family: OpenSansCondensedBold, sans-serif;
+    font-size: 1.2rem;
 }
-header > .links {
-  align-items: flex-end;
-  height: 66%;
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
+
+header>.links {
+    align-items: flex-end;
+    height: 66%;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
 }
+
 .hamburgerexpanded {
-  z-index: 10;
-  position: fixed;
-  left: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow: visible;
+    z-index: 10;
+    position: fixed;
+    left: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: visible;
 }
-.hamburgerexpanded > .links {
-  display: flex;
-  position: fixed;
-  top: 3rem;
-  right: 0;
-  bottom: 0;
-  left: 50%;
-  background-color: var(--purple);
-  opacity: 0.9;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  transition: all 0.2s ease;
+
+.hamburgerexpanded>.links {
+    display: flex;
+    position: fixed;
+    top: 3rem;
+    right: 0;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--purple);
+    opacity: 0.9;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
 }
+
 .clickaway {
-  position: absolute;
-  position: fixed;
-  top: 3rem;
-  right: 50%;
-  bottom: 0;
-  left: 0;
+    position: absolute;
+    position: fixed;
+    top: 3rem;
+    right: 50%;
+    bottom: 0;
+    left: 0;
 }
+
 .hamburger {
-  position: absolute;
-  right: 0;
-  top: 0;
-  text-align: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-align: center;
 }
-.hamburger > i {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 0.9rem;
-  transition: transform 0.2s ease;
-  font-size: 1.2rem;
-  height: 3rem;
-  width: 3rem;
+
+.hamburger>i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.9rem;
+    transition: transform 0.2s ease;
+    font-size: 1.2rem;
+    height: 3rem;
+    width: 3rem;
 }
 
 @media screen and (min-width: 590px) {
-  /* disable hamburger buttons on desktop */
-  .hamburgerexpanded {
-    display: none;
-  }
-  .links > a {
-    margin: 0 1.5rem;
-  }
-}
-@media screen and (max-width: 589px) {
-  /* hide header links */
-  header > .links {
-    display: none;
-  }
-  .links > a {
-    margin: 0.5rem 0;
-    border-bottom: 2px solid white;
-  }
-  #menuopen:not(:checked) ~ .clickaway {
-    display: none;
-  }
-  #menuopen:not(:checked) ~ .links {
-    transform: translateX(100%);
-  }
-  #menuopen:not(:checked) ~ label .close {
-    transform: scale(0);
-  }
-  #menuopen:checked ~ label .open {
-    transform: scale(0);
-  }
+    /* disable hamburger buttons on desktop */
+    .hamburgerexpanded {
+        display: none;
+    }
+    .links>a {
+        margin: 0 1.5rem;
+    }
 }
 
+@media screen and (max-width: 589px) {
+    /* hide header links */
+    header>.links {
+        display: none;
+    }
+    .links>a {
+        margin: 0.5rem 0;
+        border-bottom: 2px solid white;
+    }
+    #menuopen:not(:checked)~.clickaway {
+        display: none;
+    }
+    #menuopen:not(:checked)~.links {
+        transform: translateX(100%);
+    }
+    #menuopen:not(:checked)~label .close {
+        transform: scale(0);
+    }
+    #menuopen:checked~label .open {
+        transform: scale(0);
+    }
+}
+
+.finduson>* {
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
     </style>
     <div class="hamburgerexpanded">
       <input id="menuopen" type="checkbox" hidden="hidden"/>
@@ -931,19 +948,19 @@ What we are looking for
         </summary>
         <h1>Project Directors </h1>
         <pre>Responsibility: 
-Lead a term-based project as part of our effort towards contributing to the ML/AI community. (You/Your Project members are free to choose your topic of interest and pursue an exciting learning/practicing experience as a team. )
-Set project milestones and goals, report progress to VP Academics.
-Provide guidance and technical support to team members, encourage close teamwork and make sure the team is on the same pace
+- Lead a term-based project as part of our effort towards contributing to the ML/AI community. (You/Your Project members are free to choose your topic of interest and pursue an exciting learning/practicing experience as a team. )
+- Set project milestones and goals, report progress to VP Academics.
+- Provide guidance and technical support to team members, encourage close teamwork and make sure the team is on the same pace
 
 Why would you want to be a Project Director at UTMIST?
-Able to learn effective teamwork and leadership 
-Go in-depth on machine learning and specifically on your selected topic
-Enrich your profile with a brilliant machine learning project and unique leadership experience 
-Connect with and learn from motivated peers. 
+- Able to learn effective teamwork and leadership 
+- Go in-depth on machine learning and specifically on your selected topic
+- Enrich your profile with a brilliant machine learning project and unique leadership experience 
+- Connect with and learn from motivated peers. 
 
 What we are looking for? 
-Motivated, responsible and enjoy teamwork
-(Strongly suggest) have ideas in mind that you want to pursue + prior knowledge in related domains, which will be of great help to the success of the project</pre><a class="action solid" href="https://docs.google.com/forms/d/e/1FAIpQLSd56SHFgH2x0wpgts03Y_E0LlFuP5vDlv8ZUJcXo9pZlcging/viewform" target="_blank" rel="noopener">Apply</a><br/><a class="action outline" href="./team.html#projectdirectors" target="_blank">Copy Link To Share</a><br/>
+- Motivated, responsible and enjoy teamwork
+- (Strongly suggest) have ideas in mind that you want to pursue + prior knowledge in related domains, which will be of great help to the success of the project</pre><a class="action solid" href="https://docs.google.com/forms/d/e/1FAIpQLSd56SHFgH2x0wpgts03Y_E0LlFuP5vDlv8ZUJcXo9pZlcging/viewform" target="_blank" rel="noopener">Apply</a><br/><a class="action outline" href="./team.html#projectdirectors" target="_blank">Copy Link To Share</a><br/>
       </details>
       <details class="posting" id="projectassociates">
         <summary>
