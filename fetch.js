@@ -100,6 +100,8 @@ async function grabAFile(id, drive) {
 function ExtractID(link) {
     if (link.includes("https://drive.google.com/open?id="))
         return link.replace("https://drive.google.com/open?id=", "");
+    if (link.includes("https://drive.google.com/file/d/"))
+        return link.split("/")[5];
     return "";
 }
 async function main() {
