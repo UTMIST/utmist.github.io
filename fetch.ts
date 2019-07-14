@@ -162,6 +162,8 @@ async function grabAFile(id: string, drive: drive_v3.Drive) {
 function ExtractID(link: string) {
   if (link.includes("https://drive.google.com/open?id="))
     return link.replace("https://drive.google.com/open?id=", "")
+  if(link.includes("https://drive.google.com/file/d/"))
+    return link.split("/")[5]
   return ""
 }
 
