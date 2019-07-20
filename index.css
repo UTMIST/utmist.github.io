@@ -16,11 +16,21 @@
     margin: auto;
 }
 
+#viewall-events:checked+.card-container>.card:nth-child(n + 4) {
+    display: grid;
+}
 
-/* .abouttext > h1 {
-  margin-bottom: 0;
-  margin-top: 1rem;
-} */
+#viewall-events:not(:checked)+.card-container>.card:nth-child(n + 4) {
+    display: none;
+}
+
+#viewall-events:checked+.card-container>.show-collapsed {
+    display: none;
+}
+
+#viewall-events:not(:checked)+.card-container>.show-expanded {
+    display: none;
+}
 
 .sponsor>h1 {
     color: var(--green);

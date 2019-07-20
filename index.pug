@@ -25,8 +25,9 @@ html(lang="en")
                     +card(ev.filepath,ev["Type"],ev["Title"],ev["Summary"],ev["DateTime"],
                         ev[new Date(ev["DateTime"])>new Date()?"PreLink":"PostLink"]
                     )
-                label#viewall.action.solid(for="viewall-events") VIEW ALL
-                label#collapse.action.solid(for="viewall-events") COLLAPSE
+                label.show-collapsed.action.solid(for="viewall-events") VIEW ALL
+                label#collapse.show-expanded.action.solid(for="viewall-events") COLLAPSE
+                a.show-expanded.action.outline(href="https://utmist.sa.utoronto.ca/" target="_blank" rel="noopener") 2018 Events
             br
         section#about.duo
             img(src="assets/group.JPG")
@@ -34,17 +35,11 @@ html(lang="en")
                 h1 About Us
                 p University of Toronto Machine Intelligence Student Team (UTMIST) is an officially certified student organization within the University of Toronto. Our mission is to let more people get to know about artificial intelligence and “clear the mist” around it! 
                 a.action.solid(href="/team.html" target="_blank" rel="noopener") READ MORE
-        //- section.flex.wrap.justify-center.sponsor
-        //-     h1.fullwidth.text-center Thanks to Our Sponsors
-        //-     p.fullwidth.text-center UTMIST wouldn't be so great without
-        //-     each val in [1,2,3,4]
-        //-         img.default-margin(src="https://via.placeholder.com/150x150")
         section#contact.duo
             div.intouchtext.flex.vertical.text-center
                 h1 Newsletter
                 a.action.solid(href="https://facebook.us15.list-manage.com/subscribe?u=c7b34cca67c5aa62532130cbe&id=e5040d3cd0" target="_blank" rel="noopener") Subscribe
                 h1 Find Us On
-                //- a.action.outline.question(href="https://www.facebook.com/UofT.MIST/" target="_blank" rel="noopener") GOT A QUESTION?
                 div.flex.justify-center.finduson
                     a(href="https://twitter.com/UTMIST1" target="_blank" rel="noopener")
                         <i class="fab fa-twitter"></i>
