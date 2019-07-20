@@ -55,22 +55,6 @@
   overflow-y: auto;
 }
 
-#viewall-events:checked + .card-container > .card:nth-child(n + 4) {
-  display: grid;
-}
-
-#viewall-events:not(:checked) + .card-container > .card:nth-child(n + 4) {
-  display: none;
-}
-
-#viewall-events:checked + .card-container > #viewall {
-  display: none;
-}
-
-#viewall-events:not(:checked) + .card-container > #collapse {
-  display: none;
-}
-
 @media screen and (min-width: 590px) {
   #viewall,
   #collapse {
