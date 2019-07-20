@@ -15,14 +15,14 @@
     "@types/babel-types" "*"
 
 "@types/node@*":
-  version "12.6.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.2.tgz#a5ccec6abb6060d5f20d256fb03ed743e9774999"
-  integrity sha512-gojym4tX0FWeV2gsW4Xmzo5wxGjXGm550oVUII7f7G5o4BV6c7DBdiG1RRQd+y1bvqRyYtPfMK85UM95vsapqQ==
+  version "12.6.8"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.6.8.tgz#e469b4bf9d1c9832aee4907ba8a051494357c12c"
+  integrity sha512-aX+gFgA5GHcDi89KG5keey2zf0WfZk/HAQotEamsK2kbey+8yGKcson0hbK8E+v0NArlCJQCqMP161YhV6ZXLg==
 
 "@types/papaparse@*":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@types/papaparse/-/papaparse-5.0.0.tgz#fcac0a5008e04eaf66c64e77e6924e55df6ed7b4"
-  integrity sha512-JxYinxHA59+Vk3H61fjrPp1v0tjeT+WcyL/TGYDzmiig8125ndlbI5c6ZKVEaXQbsU8RF3TyCvH7tWsG2bI/Nw==
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@types/papaparse/-/papaparse-5.0.1.tgz#bf8ee3a144c77ffda7cf1e8f65be7e0de7472d35"
+  integrity sha512-neEiIoeNezVK5yAWuO0El6056BBt+SPy0BtDmggcy1fSdfxLltE4WXaSsnPI2V4SxoRGIEAtkZyeDRxHXhcAKQ==
   dependencies:
     "@types/node" "*"
 
@@ -278,9 +278,9 @@ googleapis-common@^2.0.2:
     uuid "^3.3.2"
 
 googleapis@*:
-  version "41.0.0"
-  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-41.0.0.tgz#88460459c9b478a4b3df012c43743e0945fa4e0d"
-  integrity sha512-SdLIKUTwJAhwdnghlsFRZ7xtBESUs+pAIieRAQXVCXbFPih8dn1hhiZuM7SX5nNP6utb6S8nCwAcDLt5BIB2BA==
+  version "41.0.1"
+  resolved "https://registry.yarnpkg.com/googleapis/-/googleapis-41.0.1.tgz#805ac3186200d07cf313563d89db2eddae872157"
+  integrity sha512-4o3seDyEB4VPukCYwry0/S7Bz1Fz6TLTjjeUnYfssGjcWTpbR3w+4dyhPQ2Kf+0E6srQExi+0h68qqQNezuhlg==
   dependencies:
     google-auth-library "^4.0.0"
     googleapis-common "^2.0.2"
@@ -385,9 +385,9 @@ lazy-cache@^1.0.3:
   integrity sha1-odePw6UEdMuAhF07O24dpJpEbo4=
 
 lodash@^4.17.4:
-  version "4.17.14"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
-  integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 longest@^1.0.1:
   version "1.0.1"
