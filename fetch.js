@@ -122,11 +122,16 @@ async function main() {
     const execsSheet = await parseCSVUrl(EXECS_SHEET_URL);
     const execsJson = csvToJson(execsSheet.data);
     for (const ex of execsJson) {
+        if (ExtractID(ex["Profile Link"])) {
+            ex["Profile Picture"] = ex["Profile Link"];
+            ex["Profile Link"] = "";
+        }
         if (ex["Profile Picture"]) {
             console.log("grabbing Profile Picture for", ex["First Name"]);
             const filepath = await grabAFile(ExtractID(ex["Profile Picture"]), drive);
             ex.filepath = filepath;
         }
+        // some ppl put google drive link as a profile link...
     }
     fs_1.default.writeFileSync(EXECS_PATH, JSON.stringify(execsJson));
     console.log(execsJson.length, "execs imported");
