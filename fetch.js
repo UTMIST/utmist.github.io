@@ -41,7 +41,7 @@ const EXECS_PATH = "./database/execs.json";
 // const EXECS_SHEET = "1p1EhfK6oLeHLhPAiQnhMt-h1Bovf4j-Eyg5v8ZP4wME"
 const EXECS_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSOWbJy69bxz8B2-mYU7q19vwCV75n6ae4ygE-LPrz1hdliN3yYlWOtAs40hsMIVc0LxzVRiQrBt8mG/pub?gid=1840609497&single=true&output=csv";
 const RECRUIT_PATH = "./database/recruit.json";
-const RECRUIT_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTASFPoEztC1aJkH2wZqEMI8dOZhPMjZOc6NN6NT0VUN0Aa3naB63UPBQBbeUxEFEMxx1-WsrGaYK6Q/pub?gid=1382893314&single=true&output=csv";
+const RECRUIT_SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSyjW6YHOq_ZAMUSxKVcs67VLlsjUE-M6ToZeNOeLmKxj6X5nkXtjZKylnx_UEf-Q9ZvjJqGW6FR6ch/pub?gid=1382893314&single=true&output=csv";
 // GLOBAL oath client
 let auth;
 const credentials = JSON.parse(process.env.GOOGLE_CREDENTIAL);
