@@ -110,6 +110,7 @@ async function main() {
     // const sheet = google.sheets({ version: "v4", auth })
     const eventsSheet = await parseCSVUrl(EVENTS_SHEET_URL);
     const eventsJson = csvToJson(eventsSheet.data);
+    eventsJson.sort((e1, e2) => new Date(e2['DateTime']).getTime() - new Date(e1['DateTime']).getTime());
     for (const ev of eventsJson) {
         if (ev["Image"]) {
             console.log("grabbing image for", ev["Title"]);
