@@ -1,5 +1,6 @@
 # utmist.github.io
-Home page for UTMIST
+
+Home page for UTMIST.
 
 # Stack
 
@@ -8,34 +9,39 @@ Get familiar with the following language/framework/toolchain:
 - HTML + CSS (no JavaScript on the Frontend)
 - [Pug](https://pugjs.org/api/getting-started.html), a templating language
 - Node.js, for building the site and continuous integration
-- Yarn/npm, package manager for Node.js
+- We exclusively used `Yarn` for node package management.
 - TypeScript, type-checked JavaScript
 - Google Sheet API + Google Drive API, as a CMS/PseudoDatabase
 - Travis CI, a continuous integration service used here to build websites when the data change
 
 # How To X
 
-- Setup environment
-    - make sure [node.js](https://nodejs.org/en/) is installed on local machine, optionally install [yarn](https://yarnpkg.com/en/)
-    - clone the repository, `cd` into the root
-    - install packages by running `yarn` or `npm install`
-    - upgrade packages if necessary by running `yarn upgrade` or `npm update`
-    - use a static server of your choice to serve the repository, navigate to `index.html`
-    - to compile `.pug` templates in watch mode, run `yarn start` or `npm start`
-    - to compile the templates just once, run `yarn build` or `npm run build`
-- Update Content
-    - Events/Execs: update the corresponding Google Sheet or use the Google Form, Travis CI will automatically update the site daily
-    - Other components: find the corresponding resource in the repository, make changes and commit
-- Add Sub-page
-    - One simple page/component
-      - Add a new `.pug` file in the repository root
-        - If the file describes a complete page (starts with \<html\>), just compile after you are done, you should see a new `.html` file with the same name as the `.pug`
-        - If the `.pug` file is a component, include it in the existing `.pug` files and compile
-      - **DON'T DIRECTLY EDIT THE HTML**, they are generated from `.pug` and will get overwritten daily
-    - Self-contained sub directory
-      - Create a sub directory in the repository root (e.g. `new_site`)
-      - Put all your files in there, treat it as a separate static website
-      - Remember to serve from the root and navigate to `localhost\new_site\`, because Github will serve the page with `utmist.github.io\new_site\`
+## Setup environment
+
+- Make sure [node.js](https://nodejs.org/en/) and [yarn](https://yarnpkg.com/en/) are installed. Some Debian/Ubuntu versions may have `npm` as [a prerequisite](https://github.com/yarnpkg/yarn/issues/2821) for `yarn`.
+- Clone the repository, `cd` into the root.
+- Install packages by running `yarn`.
+- Upgrade packages if necessary by running `yarn upgrade`.
+- Use a static server of your choice to serve the repository, navigate to `index.html`
+- To compile `.pug` templates in watch mode, run `yarn start`.
+- To compile the templates just once, run `yarn build`.
+
+## Update Content
+
+- Events/Execs: update the corresponding Google Sheet or use the Google Form, Travis CI will automatically update the site daily
+- Other components: find the corresponding resource in the repository, make changes and commit
+
+## Add Sub-page
+
+- One simple page/component
+  - Add a new `.pug` file in the repository root
+    - If the file describes a complete page (starts with \<html\>), just compile after you are done, you should see a new `.html` file with the same name as the `.pug`
+    - If the `.pug` file is a component, include it in the existing `.pug` files and compile
+  - **DON'T DIRECTLY EDIT THE HTML**, they are generated from `.pug` and will get overwritten daily
+- Self-contained sub directory
+  - Create a sub directory in the repository root (e.g. `new_site`)
+  - Put all your files in there, treat it as a separate static website
+  - Remember to serve from the root and navigate to `localhost\new_site\`, because Github will serve the page with `utmist.github.io\new_site\`
 
 # Folder Structure
 
@@ -70,4 +76,3 @@ Built --> Github("Github Pages")
 ```
 
 Remember to put Google API tokens and Github tokens in Travis environment variables, not in plain text anywhere in the repository.
-
